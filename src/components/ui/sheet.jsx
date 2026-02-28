@@ -37,20 +37,14 @@ function SheetOverlay({
     <SheetPrimitive.Overlay
       data-slot="sheet-overlay"
       className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed max-[480px]:top-[90px] sm:top-[100px] md:top-[110px] lg:top-[120px] top-[90px] bottom-0 inset-x-0 z-50 bg-black/30",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed max-[480px]:top-[90px] sm:top-[100px] md:top-[105px] lg:top-[110px] top-[90px] bottom-0 inset-x-0 z-50 bg-black/30",
         className
       )}
       {...props} />
   );
 }
 
-function SheetContent({
-  className,
-  children,
-  side = "right",
-  showCloseButton = true,
-  ...props
-}) {
+function SheetContent({ className, children, side = "right", showCloseButton = true, ...props }) {
   return (
     <SheetPortal>
       <SheetOverlay />
@@ -59,9 +53,9 @@ function SheetContent({
         className={cn(
           "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
           side === "right" &&
-          "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right bottom-0 max-[480px]:top-[90px] sm:top-[100px] md:top-[110px] lg:top-[120px] top-[90px] right-0 h-full w-3/4 border-l sm:max-w-sm",
+          "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right bottom-0 max-[480px]:top-[90px] sm:top-[100px] md:top-[105px] lg:top-[110px] top-[90px] right-0 h-full w-3/4 border-l sm:max-w-sm",
           side === "left" &&
-          "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left bottom-0 max-[480px]:top-[90px] sm:top-[100px] md:top-[110px] lg:top-[120px] top-[90px] left-0 h-full w-3/4 border-r sm:max-w-sm",
+          "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left bottom-0 max-[480px]:top-[90px] sm:top-[100px] md:top-[105px] lg:top-[110px] top-[90px] left-0 h-full w-3/4 border-r sm:max-w-sm",
           side === "top" &&
           "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
           side === "bottom" &&

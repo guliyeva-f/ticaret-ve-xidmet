@@ -1,14 +1,27 @@
 "use client";
+
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger, } from "@/components/ui/sheet";
-import { foods, travelMenuItems, } from "@/config/navbar";
-import HamburgerMenu from "@/components/hamburger-menu"
-import { useState } from "react";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import HamburgerMenu from "@/components/hamburger-menu";
+import { useState, useEffect } from "react";
+import { navigation } from "@/config/navbar";
 
 export const NavigationSheet = () => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -17,45 +30,42 @@ export const NavigationSheet = () => {
       </VisuallyHidden>
       <SheetTrigger asChild>
         <Button variant="primary">
-          <HamburgerMenu
-            checked={open}
-            size={40}
-            strokeColor="#40294a"
-            onToggle={setOpen}
-          />
+          <HamburgerMenu checked={open} size={40} strokeColor="#40294a" onToggle={setOpen} />
         </Button>
       </SheetTrigger>
-      <SheetContent className="px-6 py-3">
-        <div className="mt-12 space-y-4 text-base">
-          <Link className="inline-block" href="#">
-            Home
-          </Link>
-          <div>
-            <div className="font-bold">Food</div>
-            <ul className="mt-2 ml-1 space-y-3 border-l pl-4">
-              {foods.map((foodItem) => (
-                <li key={foodItem.title}>
-                  <Link className="flex items-center gap-2" href="#">
-                    <foodItem.icon className="mr-2 h-5 w-5 text-muted-foreground" />
-                    {foodItem.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <div className="font-bold">Travel</div>
-            <ul className="mt-2 ml-1 space-y-3 border-l pl-4">
-              {travelMenuItems.map((item) => (
-                <li key={item.title}>
-                  <Link className="flex items-center gap-2" href="#">
-                    <item.icon className="mr-2 h-5 w-5 text-muted-foreground" />
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <SheetContent className="px-6 py-6 overflow-y-auto">
+        <div className="space-y-4 text-base">
+          {navigation.map((navItem) => (
+            <div key={navItem.title}>
+              {navItem.type === "dropdown" ? (
+                <div>
+                  <div className="font-bold">{navItem.title}</div>
+                  <ul className="mt-2 ml-2 space-y-2 border-l pl-4">
+                    {navItem.items.map((item) => (
+                      <li key={item.title}>
+                        <Link
+                          href={item.href}
+                          className="flex items-center gap-2 rounded-md p-2 hover:bg-accent hover:text-accent-foreground transition-colors"
+                        >
+                          {item.icon && (
+                            <div className="h-5 w-5 text-muted-foreground">{item.icon}</div>
+                          )}
+                          {item.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <Link
+                  href={navItem.href}
+                  className="block rounded-md p-2 hover:bg-accent hover:text-accent-foreground transition-colors"
+                >
+                  {navItem.title}
+                </Link>
+              )}
+            </div>
+          ))}
         </div>
       </SheetContent>
     </Sheet>

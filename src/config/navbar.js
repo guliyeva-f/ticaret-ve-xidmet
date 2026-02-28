@@ -1,67 +1,82 @@
-import { Backpack, CakeSlice, Coffee, Grape, Hotel, IceCream, MapPin, Package, Pizza, Plane, Sandwich, Smile, } from "lucide-react";
+import { Info, Building2, Target, Cpu, BookOpen, GraduationCap } from "lucide-react";
 
-export const foods = [
+export const navigation = [
   {
-    title: "Dessert",
-    icon: CakeSlice,
-    description: "Sweet treats to satisfy your cravings.",
+    title: "Haqqımızda",
+    type: "dropdown",
+    items: [
+      {
+        title: "Ümumi məlumat",
+        href: "/about/general",
+        description: "Mərkəzin tarixi və fəaliyyət istiqamətləri.",
+        icon: <Info className="h-4 w-4" />
+      },
+      {
+        title: "Rektorluq",
+        href: "/about/rectorate",
+        description: "Rektorun müraciəti və rəhbərlik.",
+        icon: <Building2 className="h-4 w-4" />
+      },
+      {
+        title: "Missiya & Vizyon",
+        href: "/about/mission-vision",
+        description: "Strateji məqsədlər və təhsil fəlsəfəsi.",
+        icon: <Target className="h-4 w-4" />
+      }
+    ]
   },
   {
-    title: "Pizza",
-    icon: Pizza,
-    description: "Delicious, cheesy slices of goodness.",
+    title: "İxtisaslar",
+    type: "dropdown",
+    items: [
+      {
+        title: "Yüksək texniki peşə",
+        href: "/programs/high-technical",
+        description: "Ali texniki bacarıqlar üzrə proqramlar",
+        icon: <Cpu className="h-4 w-4" />
+      },
+      {
+        title: "Texniki peşə (9 illik)",
+        href: "/programs/technical-9",
+        description: "9 illik bazada ixtisaslar",
+        icon: <BookOpen className="h-4 w-4" />
+      },
+      {
+        title: "Texniki peşə (11 illik)",
+        href: "/programs/technical-11",
+        description: "11 illik bazada ixtisaslar",
+        icon: <GraduationCap className="h-4 w-4" />
+      }
+    ]
   },
   {
-    title: "Sandwich",
-    icon: Sandwich,
-    description: "Classic and hearty fast food options.",
+    title: "Qəbul",
+    type: "dropdown",
+    items: [
+      {
+        title: "Qəbul qaydaları",
+        href: "/admission/rules"
+      },
+      {
+        title: "Tələb olunan sənədlər",
+        href: "/admission/documents"
+      },
+    ]
   },
   {
-    title: "Coffee",
-    icon: Coffee,
-    description: "Your go-to boost of caffeine.",
+    title: "Müəllimlər",
+    href: "/teachers"
   },
   {
-    title: "Ice Cream",
-    icon: IceCream,
-    description: "Cold, creamy delights for any mood.",
+    title: "Xəbərlər",
+    href: "/news"
   },
   {
-    title: "Fruit",
-    icon: Grape,
-    description: "Fresh and healthy natural snacks.",
-  },
-];
-
-export const travelMenuItems = [
-  {
-    title: "Destinations",
-    icon: MapPin,
-    description: "Discover amazing places to visit.",
+    title: "Qalereya",
+    href: "/gallery"
   },
   {
-    title: "Hotels",
-    icon: Hotel,
-    description: "Find the best stays for your trips.",
-  },
-  {
-    title: "Flights",
-    icon: Plane,
-    description: "Get deals and tips on air travel.",
-  },
-  {
-    title: "Packing",
-    icon: Package,
-    description: "Essential checklists for stress-free packing.",
-  },
-  {
-    title: "Activities",
-    icon: Smile,
-    description: "Exciting things to do wherever you go.",
-  },
-  {
-    title: "Travel Tips",
-    icon: Backpack,
-    description: "Make every trip smooth and memorable.",
-  },
+    title: "Əlaqə",
+    href: "/contact"
+  }
 ];

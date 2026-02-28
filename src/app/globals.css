@@ -70,6 +70,7 @@
   --shadow-opacity: var(--shadow-opacity);
   --color-shadow-color: var(--shadow-color);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-my-bg: var(--my-bg);
 }
 
 :root {
@@ -126,6 +127,7 @@
   --shadow-xl: 0px 4px 10px 0px hsl(0 0% 18.0392% / 0.10), 0px 8px 10px -1px hsl(0 0% 18.0392% / 0.10);
   --shadow-2xl: 0px 4px 10px 0px hsl(0 0% 18.0392% / 0.25);
   --tracking-normal: 0.01em;
+  --my-bg: rgb(235, 231, 231);
 }
 
 .dark {
@@ -187,12 +189,13 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
 }
 
-*{
+* {
   /* outline: 1px solid rgba(255, 0, 0, 0.5); */
 }

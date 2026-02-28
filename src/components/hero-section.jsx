@@ -51,9 +51,24 @@ export default function HeroSection() {
         }
     }
 
+    useEffect(() => {
+        const video = document.getElementById('hero-video')
+        if (video) {
+            video.muted = true     
+            video.playsInline = true      
+            const playPromise = video.play()  
+            if (playPromise !== undefined) {
+                playPromise.catch((error) => {
+                  console.log('Autoplay failed (normal on mobile):', error)
+                  setIsPlaying(false) 
+                })
+            }
+        }
+    }, [])
+
     return (
         <section className="relative h-[calc(100vh-90px)] sm:h-[calc(100vh-100px)] md:h-[calc(100vh-105px)] lg:h-[calc(100vh-110px)] overflow-hidden top-[90px] sm:top-[100px] md:top-[105px] lg:top-[110px]">
-            {/* Video Background - Only your chosen video, no fallbacks */}
+            {/* Video Background */}
             <video
                 id="hero-video"
                 autoPlay={videoConfig.heroVideo.autoplay}
