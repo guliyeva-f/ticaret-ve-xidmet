@@ -17,7 +17,6 @@ export const NavigationSheet = () => {
         setOpen(false);
       }
     };
-
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
@@ -29,8 +28,8 @@ export const NavigationSheet = () => {
         <SheetTitle>Navigation Menu</SheetTitle>
       </VisuallyHidden>
       <SheetTrigger asChild>
-        <Button variant="primary">
-          <HamburgerMenu checked={open} size={40} strokeColor="#40294a" onToggle={setOpen} />
+        <Button variant="primary" className="text-[#40294a] dark:text-white">
+          <HamburgerMenu checked={open} size={40} onToggle={setOpen} />
         </Button>
       </SheetTrigger>
       <SheetContent className="px-6 py-6 overflow-y-auto">
@@ -60,8 +59,7 @@ export const NavigationSheet = () => {
                 <Link
                   href={navItem.href}
                   className="block rounded-md p-2 hover:bg-accent hover:text-accent-foreground transition-colors"
-                >
-                  {navItem.title}
+                > {navItem.title}
                 </Link>
               )}
             </div>

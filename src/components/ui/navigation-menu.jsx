@@ -3,19 +3,13 @@ import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui"
 import { cva } from "class-variance-authority"
 import { ChevronDownIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
-
-function NavigationMenu({
-  className,
-  children,
-  viewport = true,
-  ...props
-}) {
+function NavigationMenu({ className, children, viewport = true, ...props }) {
   return (
     <NavigationMenuPrimitive.Root
       data-slot="navigation-menu"
       data-viewport={viewport}
       className={cn(
-        "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
+        "group/navigation-menu relative flex items-center",
         className
       )}
       {...props}>
@@ -32,7 +26,7 @@ function NavigationMenuList({
   return (
     <NavigationMenuPrimitive.List
       data-slot="navigation-menu-list"
-      className={cn("group flex flex-1 list-none items-center justify-center gap-1", className)}
+      className={cn("group list-none flex justify-end gap-3 xl:gap-8 items-center", className)}
       {...props} />
   );
 }

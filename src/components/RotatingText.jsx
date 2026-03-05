@@ -142,14 +142,13 @@ const RotatingText = forwardRef((props, ref) => {
 
   return (
     <motion.div
-  className={cn('inline-block overflow-hidden', mainClassName)}
-  layout
-  initial={{ width: 0 }}
-  animate={{ width: 'auto' }}
-  exit={{ width: 0 }}
-  transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-> 
-      <span className="sr-only">{texts[currentTextIndex]}</span>
+      className={cn('inline-block overflow-hidden', mainClassName)}
+      layout
+      initial={{ width: 0 }}
+      animate={{ width: 'auto' }}
+      exit={{ width: 0 }}
+      transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+    > <span className="sr-only">{texts[currentTextIndex]}</span>
       <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
         <motion.span
           key={currentTextIndex}

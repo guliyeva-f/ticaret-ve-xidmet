@@ -195,7 +195,13 @@
     letter-spacing: var(--tracking-normal);
   }
 }
-
+/* 
 * {
   outline: 1px solid rgba(255, 0, 0, 0.5);
+} */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
