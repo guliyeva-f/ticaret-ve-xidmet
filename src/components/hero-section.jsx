@@ -2,6 +2,22 @@
 
 import { useState, useEffect } from 'react'
 import { videoConfig, getCurrentVideoInfo } from '../config/video-config'
+import RotatingText from './RotatingText';
+
+const professions = [
+    "Aşpaz",
+    "Qənnadçı",
+    "Qrafik dizayner",
+    "Moda dizayneri",
+    "Bərbər-vizajist",
+    "Manikür ustası",
+    "Turizm təşkilatçısı",
+    "Turizm sahəsində işçi",
+    "Mühasib",
+    "Kompüter operatoru",
+    "Telekommunikasiya texniki",
+    "Veb proqramçı"
+];
 
 const PlayIcon = () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -54,13 +70,13 @@ export default function HeroSection() {
     useEffect(() => {
         const video = document.getElementById('hero-video')
         if (video) {
-            video.muted = true     
-            video.playsInline = true      
-            const playPromise = video.play()  
+            video.muted = true
+            video.playsInline = true
+            const playPromise = video.play()
             if (playPromise !== undefined) {
                 playPromise.catch((error) => {
-                  console.log('Autoplay failed (normal on mobile):', error)
-                  setIsPlaying(false) 
+                    console.log('Autoplay failed (normal on mobile):', error)
+                    setIsPlaying(false)
                 })
             }
         }
@@ -75,32 +91,55 @@ export default function HeroSection() {
                 muted={videoConfig.heroVideo.muted}
                 loop={videoConfig.heroVideo.loop}
                 playsInline={videoConfig.heroVideo.playsInline}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover z-0"
             >
                 <source src={videoConfig.heroVideo.src} type={videoConfig.heroVideo.type} />
             </video>
-            <div className={`absolute inset-0 bg-linear-to-br ${videoConfig.overlay.gradient}`}></div>
+
+            <div className={`absolute inset-0 bg-linear-to-br z-10 ${videoConfig.overlay.gradient}`}></div>
+
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 z-10">
+                <h1 className="text-5xl md:text-7xl text-shadow-lg font-bold text-white mb-6 leading-tight">
+                    Gələcəyini peşə ilə qur:
+                </h1>
+
+                <div className="flex items-center gap-3 text-4xl md:text-6xl font-bold">
+                    <RotatingText
+                        texts={professions}
+                        mainClassName="px-2 md:px-3 bg-my-bg text-[#40294a] overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg"
+                        staggerFrom={"last"}
+                        initial={{ y: "110%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "-130%" }}
+                        staggerDuration={0.025}
+                        splitLevelClassName="overflow-hidden pb-3 pt-1"
+                        transition={{ type: "spring", damping: 50, stiffness: 400 }}
+                        rotationInterval={3000}
+                        loop={true}
+                        auto={true}
+                    />
+                    <span>ol!</span>
+                </div>
+            </div>
 
             {/* Video Controls */}
             {videoConfig.overlay.showControls && (
-                <div className="absolute bottom-8 right-8 flex gap-3">
+                <div className="absolute bottom-8 right-8 z-30 flex gap-3">
                     <button
                         onClick={togglePlayPause}
                         className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
-                    >
-                        {isPlaying ? <PauseIcon /> : <PlayIcon />}
+                    >{isPlaying ? <PauseIcon /> : <PlayIcon />}
                     </button>
                     <button
                         onClick={toggleMute}
                         className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
-                    >
-                        {isMuted ? <VolumeOffIcon /> : <VolumeIcon />}
+                    > {isMuted ? <VolumeOffIcon /> : <VolumeIcon />}
                     </button>
                 </div>
             )}
 
             {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
                 <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
                     <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
                 </div>
