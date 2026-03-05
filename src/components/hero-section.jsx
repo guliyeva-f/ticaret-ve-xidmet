@@ -65,7 +65,7 @@ export default function HeroSection() {
     }, [])
 
     return (
-        <section className="relative h-[calc(100vh-90px)] sm:h-[calc(100vh-100px)] md:h-[calc(100vh-105px)] lg:h-[calc(100vh-110px)] overflow-hidden top-[90px] sm:top-[100px] md:top-[105px] lg:top-[110px]">
+        <section className="relative h-[calc(100vh-90px)] sm:h-[calc(100vh-100px)] md:h-[calc(100vh-105px)] lg:h-[calc(100vh-110px)] overflow-hidden">
             {/* Video Background */}
             <video
                 id="hero-video"

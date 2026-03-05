@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <header className="fixed z-99 w-full">
+          <header className="fixed z-99 top-0 w-full">
             <Navbar />
           </header>
           {children}
