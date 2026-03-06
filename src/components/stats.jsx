@@ -6,7 +6,7 @@ import { NumberTicker } from "./ui/number-ticker";
 
 const Stats = () => {
   return (
-    <section className="relative flex h-[60vh] items-center justify-center overflow-hidden">
+    <section className="relative flex h-screen sm:h-[90vh] md:h-[80vh] lg:h-[70vh] xl:h-[60vh] items-center justify-center overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <SimpleParallax scale={1.5} delay={0.5} orientation="down">
           <Image
@@ -18,14 +18,14 @@ const Stats = () => {
         </SimpleParallax>
         <div className="absolute inset-0 bg-linear-to-b from-black/20 to-black/80"></div>
       </div>
-      <div className="mx-auto w-full max-w-(--breakpoint-xl) px-6 py-12 xl:px-0 text-white">
+      <div className="mx-auto container px-5 text-white">
         <h2 className="font-semibold text-4xl tracking-tighter md:text-5xl">
           Rəqəmlər danışır
         </h2>
         <p className="mt-4 max-w-2xl text-lg text-white/95">
           Mərkəzimizin fəaliyyəti və nailiyyətləri rəqəmlərlə daha aydın görünür
         </p>
-        <div className="mt-16 grid justify-center gap-x-10 gap-y-16 sm:mt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-10 grid justify-center gap-x-10 gap-y-16 sm:mt-16 md:mt-24 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col items-center gap-4 transition-transform hover:scale-105">
             <NumberTicker
               value={2000}
