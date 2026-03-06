@@ -1,6 +1,7 @@
 
 import HeroSection from "@/components/hero-section";
 import Feature02 from "@/components/shadcn-space/blocks/feature-02";
+import Stats from "@/components/stats";
 
 export default function Home() {
   return (
@@ -9,6 +10,10 @@ export default function Home() {
       <div className="container mx-auto">
         <Feature02 />
       </div>
+      <Stats />
+      <section className="h-screen">
+
+      </section>
     </main>
   )
 }
