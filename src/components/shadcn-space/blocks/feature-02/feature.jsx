@@ -1,16 +1,15 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Asterisk } from "lucide-react";
 import { motion } from "motion/react";
+import { useRef } from "react";
 
 const Feature = ({
   featureData
 }) => {
-  return (
+  const iconRefs = useRef([]); return (
     <section>
-      <div className="lg:py-20 sm:py-16 py-8">
-        <div className="px-4 sm:px-8">
+      <div className="lg:p-20 sm:p-16 p-8">
+        <div>
           <div className="flex flex-col gap-8 md:gap-16">
             <motion.div
               initial={{ y: -10, opacity: 0 }}
@@ -64,9 +63,11 @@ const Feature = ({
                       ease: [0.21, 0.47, 0.32, 0.98],
                     }}>
                     <Card
-                      className="py-10 h-full border-t-4 border-t-transparent transition-all duration-300 hover:border-t-primary hover:shadow-lg">
-                      <CardContent className="px-8 flex flex-col gap-2">
-                        <value.icon className="w-12 h-12 text-primary self-end" strokeWidth={1} />
+                      onMouseEnter={() => iconRefs.current[index]?.startAnimation()}
+                      onMouseLeave={() => iconRefs.current[index]?.stopAnimation()}
+                      className="h-full border-t-4 border-t-black transition-all duration-300 hover:translate-y-[-10px] hover:translate-x-[5px] cursor-pointer hover:shadow-lg">
+                      <CardContent className="px-8 flex flex-col">
+                        <value.icon ref={(el) => (iconRefs.current[index] = el)} className="w-12 h-12 text-primary self-end" strokeWidth={1} />
                         <div className="flex flex-col gap-3">
                           <h6 className="text-2xl font-semibold">
                             {value.title}
@@ -81,25 +82,6 @@ const Feature = ({
                 );
               })}
             </motion.div>
-            {/* <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.8,
-                ease: [0.21, 0.47, 0.32, 0.98],
-              }}
-              className="flex flex-col items-center justify-center gap-5">
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Asterisk size={16} />
-                <p className="font-normal text-sm">
-                  Launch faster with modular designs by Shadcn Space now
-                </p>
-              </div>
-              <Button className="rounded-full px-5 py-2.5 shadow-xs h-full cursor-pointer">
-                <a href="#">Browse more block</a>
-              </Button>
-            </motion.div> */}
           </div>
         </div>
       </div>
