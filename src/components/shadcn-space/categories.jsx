@@ -75,13 +75,13 @@ const Services = () => {
 
   return (
     <section className="bg-background py-16">
-      <div >
+      <div className="lg:px-10 sm:px-12 px-6">
         <div className="flex flex-col gap-8 sm:gap-16 justify-center items-center w-full">
           <div className="flex flex-col gap-4 justify-center items-center animate-in fade-in slide-in-from-top-10 duration-1000 delay-200 ease-in-out fill-mode-both">
             <Badge variant="outline" className="px-3 py-1 text-sm h-auto">
               İxtisaslar
             </Badge>
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
+            <h1 className="text-3xl md:text-4xl text-center font-semibold tracking-tight">
               Karyeranız üçün doğru ixtisası seçin
             </h1>
           </div>
@@ -109,11 +109,11 @@ const Services = () => {
                           {visiblePreviews.map((item, idx) => (
                             <Badge
                               key={idx}
-                              className="text-[13px] px-2 py-1 bg-gray-600 text-white dark:bg-gray-300/40 dark:text-white"
+                              className="text-[13px] px-2 py-1 bg-gray-600 text-white dark:bg-gray-300/20 dark:text-white"
                             >{item}
                             </Badge>
                           ))}
-                          <Badge className="text-[13px] px-2 py-1 bg-gray-600 text-white dark:bg-gray-300/40 dark:text-white">
+                          <Badge className="text-[13px] px-2 py-1 bg-gray-600 text-white dark:bg-gray-300/20 dark:text-white">
                             {`+${category.count}`}
                           </Badge>
                         </div>

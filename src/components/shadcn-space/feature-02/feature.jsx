@@ -65,7 +65,7 @@ const Feature = ({
                     <Card
                       onMouseEnter={() => iconRefs.current[index]?.startAnimation()}
                       onMouseLeave={() => iconRefs.current[index]?.stopAnimation()}
-                      className="h-full border-t-4 border-t-black transition-all duration-300 hover:translate-y-[-10px] hover:translate-x-[5px] cursor-pointer hover:shadow-lg">
+                      className="h-full border-t-4 border-t-black dark:border-t-white/70 transition-all duration-300 hover:translate-y-[-10px] hover:translate-x-[5px] cursor-pointer hover:shadow-lg">
                       <CardContent className="px-8 flex flex-col">
                         <value.icon ref={(el) => (iconRefs.current[index] = el)} className="w-12 h-12 text-primary self-end" strokeWidth={1} />
                         <div className="flex flex-col gap-3">
