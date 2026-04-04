@@ -1,5 +1,4 @@
-"use client";
-import Feature from "@/components/shadcn-space/feature-02/feature";
+import Feature from "@/components/feature/feature";
 import { CompassIcon } from "@/components/ui/icons/compass-icon";
 import { RocketIcon } from "@/components/ui/icons/rocket-icon";
 import { TelescopeIcon } from "@/components/ui/icons/telescope-icon";

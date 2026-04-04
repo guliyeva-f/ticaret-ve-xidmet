@@ -2,10 +2,7 @@
 
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-
-function cn(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import { cn } from "@/lib/utils";
 
 const RotatingText = forwardRef((props, ref) => {
   const {

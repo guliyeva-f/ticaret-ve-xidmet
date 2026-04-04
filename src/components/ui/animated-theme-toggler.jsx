@@ -1,8 +1,8 @@
 "use client";
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useRef } from "react"
 import { Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
 import { flushSync } from "react-dom"
-
 import { cn } from "@/lib/utils"
 
 export const AnimatedThemeToggler = ({
@@ -10,34 +10,14 @@ export const AnimatedThemeToggler = ({
   duration = 400,
   ...props
 }) => {
-  const [isDark, setIsDark] = useState(false)
+  const { theme, setTheme } = useTheme()
   const buttonRef = useRef(null)
-
-  useEffect(() => {
-    const updateTheme = () => {
-      setIsDark(document.documentElement.classList.contains("dark"))
-    }
-    updateTheme()
-
-    const observer = new MutationObserver(updateTheme)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    })
-
-    return () => observer.disconnect();
-  }, [])
-
+  const isDark = theme === "dark"
   const toggleTheme = useCallback(() => {
     if (!buttonRef.current) return
-
     const applyTheme = () => {
-      const newTheme = !isDark
-      setIsDark(newTheme)
-      document.documentElement.classList.toggle("dark")
-      localStorage.setItem("theme", newTheme ? "dark" : "light")
+      setTheme(isDark ? "light" : "dark")
     }
-
     if (
       typeof document === "undefined" ||
       !("startViewTransition" in document)
@@ -45,27 +25,21 @@ export const AnimatedThemeToggler = ({
       applyTheme()
       return
     }
-
     const transition = document.startViewTransition(() => {
       flushSync(applyTheme)
     })
-
     const ready = transition?.ready
     if (ready && typeof ready.then === "function") {
       ready.then(() => {
         const button = buttonRef.current
         if (!button) return
-
         const { top, left, width, height } = button.getBoundingClientRect()
-
         const x = left + width / 2
         const y = top + height / 2
-
         const maxRadius = Math.hypot(
           Math.max(left, window.innerWidth - left),
           Math.max(top, window.innerHeight - top)
         )
-
         document.documentElement.animate({
           clipPath: [
             `circle(0px at ${x}px ${y}px)`,
@@ -78,15 +52,15 @@ export const AnimatedThemeToggler = ({
         })
       })
     }
-  }, [isDark, duration])
+  }, [isDark, duration, setTheme])
 
   return (
     <button
       ref={buttonRef}
       onClick={toggleTheme}
       className={cn(className)}
-      {...props}>
-      {isDark ? <Sun /> : <Moon />}
+      {...props}
+    >{isDark ? <Sun /> : <Moon />}
       <span className="sr-only">Toggle theme</span>
     </button>
   );

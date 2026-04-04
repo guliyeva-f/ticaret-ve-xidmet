@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { videoConfig } from '../config/video-config'
-import RotatingText from './RotatingText';
+import { useState, useEffect, useRef } from 'react'
+import { videoConfig } from '@/config/video-config'
+import RotatingText from './rotating-text';
 import professions from '@/config/professions';
 
 const PlayIcon = () => (
@@ -29,8 +29,9 @@ const VolumeOffIcon = () => (
 export default function HeroSection() {
     const [isPlaying, setIsPlaying] = useState(true)
     const [isMuted, setIsMuted] = useState(true)
+    const videoRef = useRef(null)  
     const togglePlayPause = () => {
-        const video = document.getElementById('hero-video')
+        const video = videoRef.current
         if (video) {
             if (isPlaying) {
                 video.pause()
@@ -40,17 +41,15 @@ export default function HeroSection() {
             setIsPlaying(!isPlaying)
         }
     }
-
     const toggleMute = () => {
-        const video = document.getElementById('hero-video')
+        const video = videoRef.current  
         if (video) {
             video.muted = !isMuted
             setIsMuted(!isMuted)
         }
     }
-
     useEffect(() => {
-        const video = document.getElementById('hero-video')
+        const video = videoRef.current 
         if (video) {
             video.muted = true
             video.playsInline = true
@@ -68,8 +67,7 @@ export default function HeroSection() {
         <section className="relative h-[calc(100vh-90px)] sm:h-[calc(100vh-100px)] md:h-[calc(100vh-105px)] lg:h-[calc(100vh-110px)] overflow-hidden">
             {/* Video Background */}
             <video
-                id="hero-video"
-                autoPlay={videoConfig.heroVideo.autoplay}
+                ref={videoRef} 
                 muted={videoConfig.heroVideo.muted}
                 loop={videoConfig.heroVideo.loop}
                 playsInline={videoConfig.heroVideo.playsInline}
@@ -110,7 +108,7 @@ export default function HeroSection() {
                     <button
                         onClick={toggleMute}
                         className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
-                    > {isMuted ? <VolumeOffIcon /> : <VolumeIcon />}
+                    >{isMuted ? <VolumeOffIcon /> : <VolumeIcon />}
                     </button>
                 </div>
             )}

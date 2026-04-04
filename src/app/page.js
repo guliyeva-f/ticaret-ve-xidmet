@@ -1,7 +1,7 @@
 
 import HeroSection from "@/components/hero-section";
-import Feature02 from "@/components/shadcn-space/feature-02";
-import Categories from "@/components/shadcn-space/categories";
+import Feature02 from "@/components/feature";
+import Categories from "@/components/categories";
 import Stats from "@/components/stats";
 
 export default function Home() {
