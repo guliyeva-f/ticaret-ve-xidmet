@@ -27,7 +27,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="az" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}>
+      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}>
         <Providers>
           <header className="fixed z-50 top-0 w-full">
             <Navbar />

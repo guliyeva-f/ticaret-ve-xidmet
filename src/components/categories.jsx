@@ -10,6 +10,7 @@ import { ChartNetwork } from "lucide-react";
 import { Paintbrush } from "lucide-react";
 import { Utensils } from "lucide-react";
 import { Sparkles } from "lucide-react";
+import Link from "next/link";
 
 const categoriesData = [
   {
@@ -75,7 +76,7 @@ const Services = () => {
 
   return (
     <section className="bg-background py-16">
-      <div className="lg:px-10 sm:px-12 px-6">
+      <div className="lg:px-0 sm:px-12 px-6">
         <div className="flex flex-col gap-8 sm:gap-16 justify-center items-center w-full">
           <div className="flex flex-col gap-4 justify-center items-center animate-in fade-in slide-in-from-top-10 duration-1000 delay-200 ease-in-out fill-mode-both">
             <Badge variant="outline" className="px-3 py-1 text-sm h-auto">
@@ -98,8 +99,7 @@ const Services = () => {
                     whileInView="visible"
                     viewport={{ once: true }}
                     custom={index}
-                  >
-                    <Card className={cn("ring-0 p-6 flex flex-col min-h-[320px] h-full w-full", category.bg)}>
+                  ><Card className={cn("ring-0 p-6 flex flex-col min-h-[320px] h-full w-full", category.bg)}>
                       <CardContent className="p-0 flex flex-col items-center justify-between gap-6 flex-1">
                         <category.icon size={48} className={cn(category.color)} />
                         <p className={cn("text-2xl font-medium text-center", category.color)}>
@@ -130,15 +130,15 @@ const Services = () => {
                 </p>
               </div>
               <div className="flex md:flex-row flex-col items-center gap-4">
-                <Button
-                  className="group text-sm font-medium text-black bg-white hover:text-black dark:hover:text-black hover:bg-white/90 rounded-full flex items-center gap-4 p-1 ps-5 w-fit h-12 cursor-pointer">
-                  <a href="#" className="flex items-center gap-4">
-                    <span>Bütün ixtisasları bax</span>
-                    <div
-                      className="p-3 bg-black text-white rounded-full group-hover:rotate-45 transition-transform duration-300 ease-in-out">
+                <Button className="relative bg-white text-black font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 hover:bg-white w-fit overflow-hidden cursor-pointer">
+                  <Link href="/programs" className="flex items-center">
+                    <span className="relative z-10 text-[16px] transition-all duration-500">
+                      Bütün ixtisaslara bax
+                    </span>
+                    <div className="absolute right-1 w-10 h-10 text-white bg-gray-900 rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45">
                       <ArrowUpRight size={16} />
                     </div>
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
