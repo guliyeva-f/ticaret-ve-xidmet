@@ -16,35 +16,8 @@ export default function NavMenu({ className }) {
       className={`z-10 ${className || ""}`}
     > <NavigationMenuList className="flex-wrap">
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Haqqımızda</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-1 w-max grid-cols-[.75fr_1fr]">
-              <li className="row-span-3">
-                <NavigationMenuLink asChild>
-                  <Link href="/"
-                    className="relative flex h-full w-full overflow-hidden rounded-md outline-hidden transition-all duration-200 focus:shadow-md"
-                  ><Image
-                      src="/images/merkez.jpeg"
-                      alt="Mərkəz haqqında"
-                      fill
-                      className="object-cover"
-                    />
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-              {navigation
-                .find(nav => nav.title === "Haqqımızda")
-                ?.items.map((item) => (
-                  <ListItem key={item.title} title={item.title} href={item.href}>
-                    {item.description}
-                  </ListItem>
-                ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/teachers">Müəllimlər</Link>
+            <Link href="/about">Haqqımızda</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -59,8 +32,7 @@ export default function NavMenu({ className }) {
                     title={item.title}
                     href={item.href}
                     icon={item.icon}
-                  >{item.description}
-                  </ListItemWithIcon>
+                  ></ListItemWithIcon>
                 ))}
             </ul>
           </NavigationMenuContent>
