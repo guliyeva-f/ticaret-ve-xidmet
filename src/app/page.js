@@ -5,6 +5,7 @@ import Categories from "@/components/categories";
 import Stats from "@/components/stats";
 import Blog from "@/components/blog";
 import ContactSection1 from "@/components/contact-section-1";
+import Footer2 from "@/components/ui/footer";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
         <Blog />
         <ContactSection1 />
       </div>
-      <section className="h-screen" />
+      <Footer2 />
     </main>
   )
 }

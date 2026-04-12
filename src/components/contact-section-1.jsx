@@ -1,7 +1,19 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Mail, Clock, Phone } from 'lucide-react'
 import TravelGalleryDemo from './satisui/demo';
 import { Badge } from './ui/badge';
+
+const phones = [
+  '+994 (22) 254-76-78',
+  '+994 (22) 257-02-12',
+  '+994 (22) 267-01-60',
+];
+
+const hours = [
+  { day: 'Həftə içi', time: '09:00 — 18:00', off: false },
+  { day: 'Şənbə', time: '09:00 — 13:00', off: false },
+  { day: 'Bazar', time: 'İstirahət', off: true },
+];
 
 export default function ContactSection() {
   return (
@@ -11,64 +23,67 @@ export default function ContactSection() {
           Əlaqə
         </Badge>
         <h1 className="text-3xl md:text-4xl text-center font-semibold tracking-tight">
-          Sualların var? Bizə müraciət et!
+          Sualların var? Bizi tap!
         </h1>
       </div>
       <div className='grid gap-6 lg:grid-cols-2 lg:items-stretch'>
-        <Card className={'px-3'}>
+        <Card className='px-3'>
           <TravelGalleryDemo />
         </Card>
-
-        <div className='flex flex-col gap-6'>
-          <Card className='flex-1 gap-3 py-6'>
-            <CardHeader className='px-6'>
-              <CardTitle className='text-lg text-balance'>Əlaqə Məlumatları</CardTitle>
-            </CardHeader>
-            <CardContent className='flex flex-col gap-4 px-6'>
-              <div className='flex items-center gap-3'>
-                <div className='bg-primary/10 flex size-8 items-center justify-center rounded-full'>
-                  <Phone className='text-primary size-4' />
-                </div>
-                <div>
-                  <h4 className='text-sm font-medium'>Telefon</h4>
-                  <p className='text-muted-foreground text-xs'>+994 XX XXX XX XX</p>
-                </div>
+        <Card className='flex flex-row justify-evenly'>
+          <CardContent className='flex flex-col w-full gap-6 justify-center'>
+            <p className='font-medium uppercase tracking-widest'>
+              Əlaqə Məlumatları
+            </p>
+            <div className='flex gap-4'>
+              <div className='bg-primary/10 flex shrink-0 items-center justify-center rounded-full px-1.5'>
+                <Phone className='size-5' />
               </div>
-
-              <div className='flex items-center gap-3'>
-                <div className='bg-primary/10 flex size-8 items-center justify-center rounded-full'>
-                  <Mail className='text-primary size-4' />
-                </div>
-                <div>
-                  <h4 className='text-sm font-medium'>E-poçt</h4>
-                  <p className='text-muted-foreground text-xs'>info@mərkəz.edu.az</p>
-                </div>
+              <div className='flex flex-col gap-3'>
+                <span className='font-bold'>Telefon</span>
+                {phones.map((p) => (
+                  <a
+                    key={p}
+                    href={`tel:${p.replace(/\D/g, '')}`}
+                    className='text-muted-foreground font-medium'
+                  >{p}</a>
+                ))}
               </div>
-            </CardContent>
-          </Card>
-
-          <Card className='gap-3 py-6'>
-            <CardHeader className='px-6'>
-              <CardTitle className='text-lg text-balance'>İş Saatları</CardTitle>
-            </CardHeader>
-            <CardContent className='px-6'>
-              <div className='flex flex-col gap-2 text-sm'>
-                <div className='flex justify-between'>
-                  <span>Bazar ertəsi — Cümə</span>
-                  <span className='text-muted-foreground'>09:00 — 18:00</span>
-                </div>
-                <div className='flex justify-between'>
-                  <span>Şənbə</span>
-                  <span className='text-muted-foreground'>09:00 — 13:00</span>
-                </div>
-                <div className='flex justify-between'>
-                  <span>Bazar</span>
-                  <span className='text-muted-foreground'>İstirahət günü</span>
-                </div>
+            </div>
+            <div className='flex gap-4'>
+              <div className='bg-primary/10 flex px-1.5 shrink-0 items-center justify-center rounded-full'>
+                <Mail className='size-5' />
               </div>
-            </CardContent>
-          </Card>
-        </div>
+              <div className='flex flex-col gap-1.5'>
+                <span className='text-sm font-bold'>E-poçt</span>
+                <a
+                  href='mailto:ticaretgence@vet.edu.az'
+                  className='text-muted-foreground text-sm font-medium'
+                > ticaretgence@vet.edu.az
+                </a>
+              </div>
+            </div>
+          </CardContent>
+          <div className='my-3 border-t' />
+          <CardContent className='flex flex-col w-full gap-4 justify-center'>
+            <div className='flex items-center gap-2'>
+              <Clock className='size-5' />
+              <p className='font-medium uppercase tracking-widest'>
+                İş Saatları
+              </p>
+            </div>
+            <div className='flex flex-col divide-y gap-4'>
+              {hours.map(({ day, time, off }) => (
+                <div key={day} className='flex justify-between items-center'>
+                  <span className={off ? 'text-muted-foreground font-medium' : 'font-medium'}>{day}:</span>
+                  <span className={off ? 'text-muted-foreground/90 text-sm italic' : ''}>
+                    {time}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

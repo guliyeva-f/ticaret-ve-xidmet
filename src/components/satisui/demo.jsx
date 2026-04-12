@@ -20,23 +20,23 @@ export default function TravelGalleryDemo() {
             Hər bir korpusun üzərindən keçərək şəkilə baxın
           </p>
         </div>
-
         <GlidingCard>
           <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 items-center">
             <div className="flex flex-col gap-5">
               <ListItem
                 index="I"
                 title="Nizami prospekti, 190"
-                subtitle="köhnə 3 nömrəli Gəncə Peşə Liseyi"
+                subtitle="3 nömrəli Peşə Liseyi"
                 src="/images/merkez.jpeg"
                 caption="I Korpus"
                 rotation={-4}
                 offset={{ x: 30, y: 40 }}
+                isDefault
               />
               <ListItem
                 index="II"
-                title="C. Rəfibəyli küçəsi, 10"
-                subtitle="köhnə 1 nömrəli Gəncə Peşə Məktəbi"
+                title="Əziz Nəzərov küçəsi, 3A"
+                subtitle="1 nömrəli Peşə Məktəbi"
                 src="/images/merkez.jpeg"
                 caption="II Korpus"
                 rotation={8}
@@ -44,8 +44,8 @@ export default function TravelGalleryDemo() {
               />
               <ListItem
                 index="III"
-                title="Əziz Nəzərov küçəsi, 3A"
-                subtitle="köhnə 2 nömrəli Gəncə Peşə Məktəbi"
+                title="Nizami prospekti, 44"
+                subtitle="2 nömrəli Peşə Məktəbi"
                 src="/images/merkez.jpeg"
                 caption="III Korpus"
                 rotation={-8}
@@ -62,14 +62,16 @@ export default function TravelGalleryDemo() {
   );
 }
 
-function ListItem({ index, title, subtitle, src, caption, rotation, offset }) {
+function ListItem({ index, title, subtitle, src, caption, rotation, offset, isDefault }) {
   return (
     <GlidingCardItem
+      isDefault={isDefault}
       target={<Polaroid src={src} caption={caption} />}
       rotation={rotation}
       offset={offset}
-      className="group flex cursor-pointer items-center justify-between py-4 px-2 transition-all hover:pl-4 hover:bg-muted/50 rounded-lg"
-    > <div className="flex items-center gap-6">
+      className="group flex cursor-pointer items-center justify-between py-4 px-2 transition-all rounded-lg"
+      activeClassName="pl-4 bg-muted/50"
+    ><div className="flex items-center gap-6">
         <span className="font-mono text-muted-foreground group-hover:text-muted-foreground transition-colors">
           {index}
         </span>
