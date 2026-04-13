@@ -39,8 +39,7 @@ const Feature = ({ featureData }) => {
             whileInView="show"
             viewport={{ once: true }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {featureData.map((value, index) => {
+          > {featureData.map((value, index) => {
               const isLastOdd =
                 featureData.length % 2 === 1 && index === featureData.length - 1;
               return (

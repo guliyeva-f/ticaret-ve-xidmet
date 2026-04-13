@@ -7,10 +7,9 @@ import { cn } from '@/lib/utils';
 
 export default function TravelGalleryDemo() {
   return (
-    <>
-      <style jsx global>{`
-      @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
-    `}</style>
+    <><style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+      `}</style>
       <div className="w-full flex flex-col gap-6">
         <div className="flex flex-col gap-2 ml-6">
           <h2 className="text-xl font-medium tracking-tight text-foreground">
@@ -21,7 +20,7 @@ export default function TravelGalleryDemo() {
           </p>
         </div>
         <GlidingCard>
-          <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 items-center">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 items-stretch">
             <div className="flex flex-col gap-5">
               <ListItem
                 index="I"
@@ -52,7 +51,7 @@ export default function TravelGalleryDemo() {
                 offset={{ x: 50, y: -110 }}
               />
             </div>
-            <div className="relative hidden w-full lg:block perspective-1000">
+            <div className="relative hidden md:block perspective-1000 self-stretch">
               <GlidingCardContent />
             </div>
           </div>
@@ -71,7 +70,7 @@ function ListItem({ index, title, subtitle, src, caption, rotation, offset, isDe
       offset={offset}
       className="group flex cursor-pointer items-center justify-between py-4 px-2 transition-all rounded-lg"
       activeClassName="pl-4 bg-muted/50"
-    ><div className="flex items-center gap-6">
+    > <div className="flex items-center gap-6">
         <span className="font-mono text-muted-foreground group-hover:text-muted-foreground transition-colors">
           {index}
         </span>
@@ -98,14 +97,12 @@ function Polaroid({ src, caption }) {
     )}
     ><div className="relative aspect-4/5 w-full overflow-hidden mb-4 bg-muted">
         <div className="absolute inset-0 bg-linear-to-tr from-orange-500/10 to-blue-500/10 mix-blend-overlay z-10" />
-        <img src={src} alt={caption}
-          className="w-full h-full object-cover contrast-[1.1] brightness-[1.1]"
+        <img src={src} alt={caption} className="w-full h-full object-cover contrast-[1.1] brightness-[1.1]"
         />
         <div className="absolute inset-0 ring-1 ring-inset ring-black/10 dark:ring-white/10 z-20" />
       </div>
       <div className="text-center">
-        <span
-          className="text-[22px] leading-none text-card-foreground/90"
+        <span className="text-[22px] leading-none text-card-foreground/90"
           style={{ fontFamily: 'Caveat, cursive' }}
         >{caption}
         </span>

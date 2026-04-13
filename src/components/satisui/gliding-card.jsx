@@ -2,18 +2,16 @@
 import React, { createContext, useContext, useRef, useState, useCallback, useEffect, } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/utils';
-
 const GlidingCardContext = createContext(undefined);
 
 export function GlidingCard({ children }) {
   const [activeId, setActiveId] = useState(null);
   const [activeContent, setActiveContent] = useState(null);
-  const [activeRect, setActiveRect] = useState(null);
+  const [activeElementRef, setActiveElementRef] = useState(null);
   const [activeConfig, setActiveConfig] = useState({
     rotation: 0,
     offset: { x: 0, y: 0 },
   });
-
   const leaveTimer = useRef(null);
   const defaultRef = useRef(null);
 
@@ -23,32 +21,30 @@ export function GlidingCard({ children }) {
       return;
     }
     const { id, content, config, elementRef } = defaultRef.current;
-    const rect = elementRef.current?.getBoundingClientRect();
-    if (rect) {
+    if (elementRef.current) {
       setActiveId(id);
       setActiveContent(content);
-      setActiveRect(rect);
+      setActiveElementRef(elementRef);
       setActiveConfig(config);
     }
   }, []);
 
   const registerDefault = useCallback((id, elementRef, content, config) => {
     defaultRef.current = { id, content, config, elementRef };
-    const rect = elementRef.current?.getBoundingClientRect();
-    if (rect) {
+    if (elementRef.current) {
       setActiveId(id);
       setActiveContent(content);
-      setActiveRect(rect);
+      setActiveElementRef(elementRef);
       setActiveConfig(config);
     }
   }, []);
 
-  const registerActivation = useCallback((id, rect, content, config, elementRef) => {
+  const registerActivation = useCallback((id, content, config, elementRef) => {
     if (leaveTimer.current) clearTimeout(leaveTimer.current);
     defaultRef.current = { id, content, config, elementRef };
     setActiveId(id);
     setActiveContent(content);
-    setActiveRect(rect);
+    setActiveElementRef(elementRef);
     setActiveConfig(config);
   }, []);
 
@@ -60,14 +56,13 @@ export function GlidingCard({ children }) {
 
   return (
     <GlidingCardContext.Provider
-      value={{ activeId, activeContent, activeRect, activeConfig, registerActivation, registerDeactivation, registerDefault, }}>
-      {children}
+      value={{ activeId, activeContent, activeElementRef, activeConfig, registerActivation, registerDeactivation, registerDefault, }}
+    >{children}
     </GlidingCardContext.Provider>
   );
 }
 
-export function GlidingCardItem({ children, className, activeClassName, target, offset = { x: 0, y: 0 }, rotation = 0, isDefault = false, as, ...props
-}) {
+export function GlidingCardItem({ children, className, activeClassName, target, offset = { x: 0, y: 0 }, rotation = 0, isDefault = false, as, ...props }) {
   const context = useContext(GlidingCardContext);
   if (!context)
     throw new Error('GlidingCardItem must be used within GlidingCard');
@@ -92,9 +87,8 @@ export function GlidingCardItem({ children, className, activeClassName, target, 
     }
   }, [isDefault]);
 
-  const handleActivate = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    context.registerActivation(id, rect, target, config, elementRef);
+  const handleActivate = () => {
+    context.registerActivation(id, target, config, elementRef);
   };
 
   const handleDeactivate = () => {
@@ -102,28 +96,33 @@ export function GlidingCardItem({ children, className, activeClassName, target, 
   };
 
   return (
-    <Tag ref={elementRef} id={id} role='button' tabIndex={0} aria-describedby={isActive ? cardId : undefined} aria-expanded={isActive} {...props} onMouseEnter={(e) => {
-      handleActivate(e);
-      props.onMouseEnter?.(e);
-    }}
+    <Tag ref={elementRef} id={id} role='button' tabIndex={0} aria-describedby={isActive ? cardId : undefined} aria-expanded={isActive} {...props}
+      onMouseEnter={(e) => {
+        handleActivate();
+        props.onMouseEnter?.(e);
+      }}
       onMouseLeave={(e) => {
         handleDeactivate();
         props.onMouseLeave?.(e);
       }}
       onFocus={(e) => {
-        handleActivate(e);
+        handleActivate();
         props.onFocus?.(e);
       }}
       onBlur={(e) => {
         handleDeactivate();
         props.onBlur?.(e);
       }}
+      onTouchStart={(e) => {
+        handleActivate();
+        props.onTouchStart?.(e);
+      }}
       className={cn(
         'cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
         className,
         isActive && activeClassName
-      )}>
-      {children}
+      )}
+    >{children}
     </Tag>
   );
 }
@@ -134,13 +133,13 @@ export function GlidingCardContent({ className }) {
     throw new Error('GlidingCardContent must be used within GlidingCard');
 
   const containerRef = useRef(null);
-  const { activeId, activeContent, activeRect, activeConfig } = context;
-
+  const { activeId, activeContent, activeElementRef, activeConfig } = context;
   const getRelativePosition = () => {
-    if (!activeRect || !containerRef.current) return { top: 0 };
+    if (!activeElementRef?.current || !containerRef.current) return { top: 0 };
+    const itemRect = activeElementRef.current.getBoundingClientRect();
     const containerRect = containerRef.current.getBoundingClientRect();
-    const topOfItem = activeRect.top - containerRect.top;
-    const centerOfItem = topOfItem + activeRect.height / 2;
+    const topOfItem = itemRect.top - containerRect.top;
+    const centerOfItem = topOfItem + itemRect.height / 2;
     return { top: centerOfItem + (activeConfig.offset?.y || 0) };
   };
 
@@ -150,7 +149,7 @@ export function GlidingCardContent({ className }) {
   return (
     <div ref={containerRef} className='relative w-full h-full pointer-events-none'>
       <AnimatePresence>
-        {activeId && activeRect && (
+        {activeId && activeElementRef?.current && (
           <motion.div
             id={currentCardId}
             role='tooltip'
@@ -178,8 +177,8 @@ export function GlidingCardContent({ className }) {
               rotateZ: activeConfig.rotation || 0,
               y: '-50%',
             }}
-            transition={{ type: 'spring', stiffness: 350, damping: 25 }}>
-            {activeContent}
+            transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+          >{activeContent}
           </motion.div>
         )}
       </AnimatePresence>

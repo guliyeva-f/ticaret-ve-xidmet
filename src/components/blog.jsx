@@ -137,8 +137,7 @@ export default function Blog() {
         px-4 py-2 rounded-md
         hover:brightness-125 hover:border-t-4 hover:border-b
         active:opacity-75 outline-none duration-300 group
-      "
-      ><span
+      "><span
         className="
           bg-orange-400
           absolute -top-[150%] left-0

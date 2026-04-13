@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { Providers } from "@/components/providers";
+import Footer2 from "@/components/ui/footer";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 
 const roboto = Roboto({
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
             <Navbar />
           </header>
           {children}
+          <Footer2 />
         </Providers>
       </body>
     </html>

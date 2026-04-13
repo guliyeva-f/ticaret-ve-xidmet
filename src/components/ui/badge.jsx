@@ -33,7 +33,6 @@ function Badge({
   ...props
 }) {
   const Comp = asChild ? Slot.Root : "span"
-
   return (
     <Comp
       data-slot="badge"

@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+
 function Footer2() {
     const navLinks = [{
         name: "Haqqımızda",
@@ -33,52 +35,36 @@ function Footer2() {
     },];
 
     return <footer className="pb-10 flex flex-col gap-5">
+        <div className='border-t' />
         <div className="flex flex-col gap-3 container mx-auto">
             <div className="w-full flex justify-center">
                 <div className="w-24 h-24">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 56 56"
-                    ><g id="Group_8" data-name="Group 8" transform="matrix(1.000003, 0, 0, 1, -96.116247, -124.028997)">
-                            <path id="Path_7" data-name="Path 7" d="M121.212,168.451a9.241,9.241,0,0,1,1.485-7.158,7.263,7.263,0,0,1-1.1-1.393c-3.742,6.1-2.814,12.415,10.326,19.5l1.165.628c-.042-.389-.069-.915-.115-1.347-5.483-2.826-7.763-5.118-9.156-7.416-1.87-3.085-.878-5.771,1.453-8.419a7.285,7.285,0,0,1-1.567-.918,10.691,10.691,0,0,0-2.065,6.539l.161,1.469-.584-1.486Zm7.99-9.281a7.409,7.409,0,0,0-3.962.774c3.053-3.5,7.451-6.607,10.8-9.857-3.33,2.3-8.137,5.2-11.413,8.741a7.417,7.417,0,0,0,.127-3.011,83.5,83.5,0,0,1,6.4-6.085c7.462-6.569,15.758-12.175,8.552-19.67a24.582,24.582,0,0,0-6.834-4.657L115.2,142.947l17.626-17.5-.327-1.217h0l.2-.2c19.251,9.755,15.574,18.509,3.82,29.106C134.12,155.3,131.5,157.265,129.2,159.17Z" transform="translate(-8.503 0)" className="fill-[#40294a] dark:fill-white" fillRule="evenodd"></path>
-                            <path id="Path_8" data-name="Path 8" d="M131.644,190.432h0a4.144,4.144,0,0,1,5.84-.228h0A4.144,4.144,0,0,1,131.644,190.432Z" transform="translate(-15.831 -29)" className="fill-[#40294a] dark:fill-white" fillRule="evenodd"></path>
-                            <path id="Path_9" data-name="Path 9" d="M128.361,185.022h0a4.144,4.144,0,0,1-1.731-5.581h0A4.144,4.144,0,0,1,128.361,185.022Z" transform="translate(-13.386 -24.691)" className="fill-[#40294a] dark:fill-white" fillRule="evenodd"></path>
-                            <path id="Path_10" data-name="Path 10" d="M179.016,153.9l-.706.706-.706.706a.506.506,0,0,1-.847-.227l-.258-.965-.258-.964a.506.506,0,0,1,.62-.62l.965.258.964.259a.506.506,0,0,1,.227.847Z" transform="translate(-35.695 -12.692)" className="fill-[#94836b] dark:fill-[#e8d3ae]" fillRule="evenodd"></path>
-                            <path id="Path_11" data-name="Path 11" d="M107.68,185.087l.706-.706.706-.706a.506.506,0,0,1,.847.227l.258.965.258.965a.506.506,0,0,1-.62.62l-.965-.259-.964-.258a.506.506,0,0,1-.227-.847Z" transform="translate(-5.086 -26.511)" className="fill-[#94836b] dark:fill-[#e8d3ae]" fillRule="evenodd"></path>
-                            <path id="Path_12" data-name="Path 12" d="M124.467,178.843c.045.431.073.957.115,1.347,1.752-1.735,3.98-3.937,5.736-5.669l1.019-1.005.942-.164c.612-.116,1.216-.212,1.809-.289s1.174-.133,1.744-.17c.6-.039,1.184-.055,1.744-.047s1.086.038,1.594.091a16.363,16.363,0,0,1,1.655.259,15.237,15.237,0,0,1,1.556.414,14.342,14.342,0,0,1,2.832,1.267l.675.432c1.118-5.976,1.757-12.542,2.586-18.641l.042-.041,1.1-1.082,3.4-3.341-3.63-3.74-.78-.8,0,0h0l-.908-.935-.833-.858-.673-.694h0q.453-2.255.912-4.509l1.563.984-.969,5.076h0l.908.935q.6-3.292,1.2-6.583l-2.574-1.621.482-4.161-4.593-.627.426-5.464a22.279,22.279,0,0,0-4.844.452,25.505,25.505,0,0,0-4.454,1.322l-.037.014q.427.437.8.873c.473-.186.947-.357,1.4-.5s.885-.273,1.278-.368.767-.176,1.155-.251.778-.144,1.159-.2.765-.112,1.153-.16.768-.09,1.135-.125l.081-.008-.936,9.216.753.2.36.1.49-4,3.464.473q-.652,3.961-1.306,7.922l.811.835h0l-.812-.831-2.481-2.539-.267.267-.409.409,9.54,9.867c-9.144,9-18.017,17.667-27.113,26.682Zm8.256-6.692.031-.032,1.05-1.033c.62-.185,1.16-.333,1.715-.448a16.032,16.032,0,0,1,2.233-.293,19.781,19.781,0,0,1,2.575-.016,14.322,14.322,0,0,1,2.285.318l.595.137q.735-5.2,1.48-10.394l.976-.959,1.534-1.507-2.137,15.618-.08-.041c-.424-.216-.862-.414-1.312-.592s-.91-.337-1.382-.475-.961-.257-1.459-.355-1.013-.175-1.541-.231-1.054-.089-1.6-.1-1.112-.005-1.687.024-1.141.079-1.73.151q-.752.091-1.542.229Zm2.667-2.626q4-3.934,8-7.864l-1.134,7.8-.065-.012a15.411,15.411,0,0,0-2.158-.225,22.209,22.209,0,0,0-2.45.049,20.037,20.037,0,0,0-2.031.226l-.164.029Zm10.8-24.353-.177-.183ZM123.994,124.39q-3.672,3.665-7.348,7.338l-.353.353c-.157-.091-.314-.183-.471-.272-.386-.2-.78-.385-1.177-.554s-.8-.323-1.206-.465-.828-.273-1.247-.39-.837-.221-1.261-.315q-.705-.157-1.4-.274t-1.392-.206c-.459-.059-.916-.108-1.368-.15s-.906-.078-1.342-.106l-.431-.029h-.21l.542,5.6-4.581.709.557,4.152-2.547,1.668q.576,3.5,1.17,6.99l-.039.039-.809.809-2.963,2.964,3.274,2.954,1.073.969.008.008h0l1.245,1.113,2.305,2.061.349-.446.265-.339-4.345-3.825-2.822-2.48,9.226-9.16,17.626-17.5q-.163-.609-.327-1.217Zm-8.5,8.485q-4.125,4.121-8.25,8.246L106,130.488l.079.006c.378.03.758.065,1.136.1s.77.087,1.157.14.769.113,1.16.181.78.146,1.161.231q.639.142,1.282.324t1.261.4c.395.141.785.3,1.168.464s.736.34,1.094.532Zm-9.25,9.246-.571.572-2.335,2.335-1.368-8.478,3.458-.536.816,6.107ZM102.371,146l-.741.741-.763.764-.951-5.5,1.548-1.013.907,5.011Zm6.759,23.187a19.082,19.082,0,0,1,2.687.136,10.3,10.3,0,0,0,.574,1.185l-.073-.011a18.047,18.047,0,0,0-3.2-.218,15.151,15.151,0,0,0-3,.368l-.595.137c-.5-3.878-.821-6.348-1.3-10.073l.631.169a.494.494,0,0,0,.416-.069l1.2,8.645.064-.012a16.4,16.4,0,0,1,2.6-.258Zm-7.411-11.877,1.95,16.231.079-.04q.636-.323,1.312-.592t1.382-.475q.71-.207,1.459-.355t1.541-.231q.734-.077,1.508-.1t1.582.013l.393.021.313.021a15.464,15.464,0,0,0,1.012,1.222c-.254-.03-.634-.077-.844-.094q-.364-.031-.707-.05c-.563-.032-1.111-.043-1.637-.034s-1.023.039-1.5.09a16.315,16.315,0,0,0-1.655.259,15.064,15.064,0,0,0-1.556.414,14.355,14.355,0,0,0-2.832,1.267l-.675.432c-1.122-5.953-1.641-12.966-2.366-19.125Z" transform="translate(0 -0.161)" className="fill-[#94836b] dark:fill-[#e8d3ae]" fillRule="evenodd"></path>
-                            <path id="Path_13" data-name="Path 13" d="M169.415,139.838a2.626,2.626,0,1,1-2.626,2.626A2.625,2.625,0,0,1,169.415,139.838Z" transform="translate(-31.491 -7.044)" className="fill-[#40294a] dark:fill-white" fillRule="evenodd"></path>
-                        </g>
-                    </svg>
+                    <img src='/images/logo.png' alt="Logo" />
                 </div>
             </div>
-
             <nav>
                 <ul className="flex justify-center gap-5 text-base font-medium">
                     {navLinks.map(link => <li key={link.name}>
-                        <a href={link.href} className="transition-all duration-300 relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gray-900 dark:after:bg-white after:transition-all after:duration-300 hover:after:w-full">
+                        <Link href={link.href} className="transition-all duration-300 relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gray-900 dark:after:bg-white after:transition-all after:duration-300 hover:after:w-full">
                             {link.name}
-                        </a>
+                        </Link>
                     </li>)}
                 </ul>
             </nav>
             <div className="flex justify-center gap-2">
-                {socialIcons.map(icon => <a key={icon.name} target="_blank" rel="noopener noreferrer" aria-label={icon.name} href={icon.href}>
+                {socialIcons.map(icon => <Link key={icon.name} target="_blank" rel="noopener noreferrer" aria-label={icon.name} href={icon.href}>
                     {icon.svg}
-                </a>)}
+                </Link>)}
             </div>
         </div>
         <div className='border-t' />
         <div className="flex items-center justify-between container mx-auto text-[15px]">
             <p>&copy; {new Date().getFullYear()} Ticarət və Xidmət üzrə Gəncə Dövlət Peşə Təhsil Mərkəzi</p>
-            <p className="flex items-center gap-1">
+            <p className="flex items-center gap-1 text-sm">
                 <span>Developed by</span>
-                <a
-                    aria-label="Guliyeva Fatima"
-                    className="flex items-center gap-1 font-medium hover:underline"
-                    href="https://fatima-guliyeva.vercel.app/"
-                    rel="noreferrer"
-                    target="_blank"
+                <Link aria-label="Guliyeva Fatima" className="flex items-center gap-1 font-medium hover:underline" href="https://fatima-guliyeva.vercel.app/" rel="noreferrer" target="_blank"
                 >❤️Fatima Guliyeva
-                </a>
+                </Link>
             </p>
         </div>
     </footer>;

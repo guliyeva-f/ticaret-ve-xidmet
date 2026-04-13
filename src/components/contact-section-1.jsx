@@ -2,6 +2,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Mail, Clock, Phone } from 'lucide-react'
 import TravelGalleryDemo from './satisui/demo';
 import { Badge } from './ui/badge';
+import Link from 'next/link';
 
 const phones = [
   '+994 (22) 254-76-78',
@@ -30,7 +31,7 @@ export default function ContactSection() {
         <Card className='px-3'>
           <TravelGalleryDemo />
         </Card>
-        <Card className='flex flex-row justify-evenly'>
+        <Card className='flex flex-col justify-evenly md:flex-row lg:flex-col xl:flex-row'>
           <CardContent className='flex flex-col w-full gap-6 justify-center'>
             <p className='font-medium uppercase tracking-widest'>
               Əlaqə Məlumatları
@@ -42,11 +43,11 @@ export default function ContactSection() {
               <div className='flex flex-col gap-3'>
                 <span className='font-bold'>Telefon</span>
                 {phones.map((p) => (
-                  <a
+                  <Link
                     key={p}
                     href={`tel:${p.replace(/\D/g, '')}`}
                     className='text-muted-foreground font-medium'
-                  >{p}</a>
+                  >{p}</Link>
                 ))}
               </div>
             </div>
@@ -56,15 +57,15 @@ export default function ContactSection() {
               </div>
               <div className='flex flex-col gap-1.5'>
                 <span className='text-sm font-bold'>E-poçt</span>
-                <a
+                <Link
                   href='mailto:ticaretgence@vet.edu.az'
                   className='text-muted-foreground text-sm font-medium'
-                > ticaretgence@vet.edu.az
-                </a>
+                >ticaretgence@vet.edu.az
+                </Link>
               </div>
             </div>
           </CardContent>
-          <div className='my-3 border-t' />
+          <div className='mx-3 border-t md:border-t-0 md:border-l md:mx-0 md:my-3' />
           <CardContent className='flex flex-col w-full gap-4 justify-center'>
             <div className='flex items-center gap-2'>
               <Clock className='size-5' />
