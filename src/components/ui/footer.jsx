@@ -43,7 +43,7 @@ function Footer2() {
                 </div>
             </div>
             <nav>
-                <ul className="flex justify-center gap-5 text-base font-medium">
+                <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-base font-medium">
                     {navLinks.map(link => <li key={link.name}>
                         <Link href={link.href} className="transition-all duration-300 relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gray-900 dark:after:bg-white after:transition-all after:duration-300 hover:after:w-full">
                             {link.name}
@@ -58,11 +58,11 @@ function Footer2() {
             </div>
         </div>
         <div className='border-t' />
-        <div className="flex items-center justify-between container mx-auto text-[15px]">
-            <p>&copy; {new Date().getFullYear()} Ticarət və Xidmət üzrə Gəncə Dövlət Peşə Təhsil Mərkəzi</p>
-            <p className="flex items-center gap-1 text-sm">
+        <div className="flex flex-col sm:flex-row items-end justify-between gap-2 container mx-auto px-4 text-[15px] sm:text-left">
+            <p className="self-start">&copy; {new Date().getFullYear()} Ticarət və Xidmət üzrə Gəncə Dövlət Peşə Təhsil Mərkəzi</p>
+            <p className="flex items-center gap-1 text-sm shrink-0">
                 <span>Developed by</span>
-                <Link aria-label="Guliyeva Fatima" className="flex items-center gap-1 font-medium hover:underline" href="https://fatima-guliyeva.vercel.app/" rel="noreferrer" target="_blank"
+                <Link aria-label="Guliyeva Fatima" className="flex items-center sm:text-right gap-1 font-medium hover:underline" href="https://fatima-guliyeva.vercel.app/" rel="noreferrer" target="_blank"
                 >❤️Fatima Guliyeva
                 </Link>
             </p>
