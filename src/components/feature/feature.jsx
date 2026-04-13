@@ -40,36 +40,36 @@ const Feature = ({ featureData }) => {
             viewport={{ once: true }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           > {featureData.map((value, index) => {
-              const isLastOdd =
-                featureData.length % 2 === 1 && index === featureData.length - 1;
-              return (
-                <motion.div
-                  key={index}
-                  className={isLastOdd ? "sm:col-span-2 lg:col-span-1" : ""}
-                  variants={{
-                    hidden: { opacity: 0, y: 30, filter: "blur(4px)" },
-                    show: { opacity: 1, y: 0, filter: "blur(0px)" },
-                  }}
-                  transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-                ><Card
-                    onMouseEnter={() => iconRefs.current[index]?.startAnimation()}
-                    onMouseLeave={() => iconRefs.current[index]?.stopAnimation()}
-                    className="h-full border-t-4 border-t-black dark:border-t-white/70 transition-all duration-300 hover:translate-y-[-10px] hover:translate-x-[5px] cursor-pointer hover:shadow-lg"
-                  ><CardContent className="px-8 flex flex-col">
-                      <value.icon
-                        ref={(el) => (iconRefs.current[index] = el)}
-                        className="w-12 h-12 text-primary self-end"
-                        strokeWidth={1}
-                      />
-                      <div className="flex flex-col gap-3">
-                        <h6 className="text-2xl font-semibold">{value.title}</h6>
-                        <p className="text-base text-muted-foreground">{value.content}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
+            const isLastOdd =
+              featureData.length % 2 === 1 && index === featureData.length - 1;
+            return (
+              <motion.div
+                key={index}
+                className={isLastOdd ? "sm:col-span-2 lg:col-span-1" : ""}
+                variants={{
+                  hidden: { opacity: 0, y: 30, filter: "blur(4px)" },
+                  show: { opacity: 1, y: 0, filter: "blur(0px)" },
+                }}
+                transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+              ><Card
+                onMouseEnter={() => iconRefs.current[index]?.startAnimation()}
+                onMouseLeave={() => iconRefs.current[index]?.stopAnimation()}
+                className="h-full border-t-4 border-t-black dark:border-t-white/70 transition-all duration-300 hover:translate-y-[-10px] hover:translate-x-[5px] cursor-pointer hover:shadow-lg"
+              ><CardContent className="px-8 flex flex-col">
+                    <value.icon
+                      ref={(el) => (iconRefs.current[index] = el)}
+                      className="w-12 h-12 text-primary dark:text-white/90 self-end"
+                      strokeWidth={1}
+                    />
+                    <div className="flex flex-col gap-3">
+                      <h6 className="text-2xl font-semibold">{value.title}</h6>
+                      <p className="text-base text-muted-foreground">{value.content}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
           </motion.div>
         </div>
       </div>

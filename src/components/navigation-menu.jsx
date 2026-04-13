@@ -86,16 +86,15 @@ function ListItem({ title, children, href, ...props }) {
     </li>
   );
 }
-
 function ListItemWithIcon({ title, children, href, icon, ...props }) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
         <Link
           href={href}
-          className="flex flex-row items-center gap-3 rounded-md"
-        ><span className="text-muted-foreground mt-1 [&>svg]:w-5! [&>svg]:h-5!">
-            {icon}
+          className="flex flex-row items-center gap-3 rounded-md group"
+        ><span className="mt-1 [&>svg]:w-5 [&>svg]:h-5 [&>svg]:text-current
+            ">{icon}
           </span>
           <div className="flex flex-col">
             <span className="text-sm font-medium leading-none">

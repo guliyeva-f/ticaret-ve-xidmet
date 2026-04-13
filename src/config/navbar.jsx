@@ -2,6 +2,10 @@ import { Cpu, BookOpen, GraduationCap } from "lucide-react";
 
 export const navigation = [
   {
+    title: "Haqqımızda",
+    href: "/about"
+  },
+  {
     title: "İxtisaslar",
     type: "dropdown",
     items: [
@@ -23,6 +27,10 @@ export const navigation = [
     ]
   },
   {
+    title: "Xəbərlər",
+    href: "/news"
+  },
+  {
     title: "Qəbul",
     type: "dropdown",
     items: [
@@ -36,4 +44,8 @@ export const navigation = [
       },
     ]
   },
+  {
+    title: "Əlaqə",
+    href: "/contact"
+  }
 ];

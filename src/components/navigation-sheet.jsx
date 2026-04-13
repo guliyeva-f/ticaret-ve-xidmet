@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import HamburgerMenu from "@/components/hamburger-menu";
 import { useState, useEffect } from "react";
 import { navigation } from "@/config/navbar";
+import { ArrowUpRight } from "lucide-react";
 
 export const NavigationSheet = () => {
   const [open, setOpen] = useState(false);
@@ -33,12 +34,12 @@ export const NavigationSheet = () => {
         </Button>
       </SheetTrigger>
       <SheetContent className="px-6 py-6 overflow-y-auto">
-        <div className="space-y-4 text-base">
+        <div className="flex flex-col gap-5">
           {navigation.map((navItem) => (
             <div key={navItem.title}>
               {navItem.type === "dropdown" ? (
                 <div>
-                  <div className="font-bold">{navItem.title}</div>
+                  <div className="font-bold ml-3">{navItem.title}</div>
                   <ul className="mt-2 ml-2 space-y-2 border-l pl-4">
                     {navItem.items.map((item) => (
                       <li key={item.title}>
@@ -58,8 +59,8 @@ export const NavigationSheet = () => {
               ) : (
                 <Link
                   href={navItem.href}
-                  className="block rounded-md p-2 hover:bg-accent hover:text-accent-foreground transition-colors"
-                > {navItem.title}
+                  className="rounded-md flex items-center gap-2 text-lg font-bold p-2 hover:bg-accent hover:text-accent-foreground transition-colors"
+                > {navItem.title} <ArrowUpRight className="size-4" />
                 </Link>
               )}
             </div>
