@@ -4,22 +4,14 @@ import React from "react";
 import Link from "next/link";
 
 function Footer2() {
-    const navLinks = [{
-        name: "Haqqımızda",
-        href: "#haqqimizda"
-    }, {
-        name: "İxtisaslar",
-        href: "#ixtisaslar"
-    }, {
-        name: "Xəbərlər",
-        href: "#xeberler"
-    }, {
-        name: "Qəbul",
-        href: "#qebul"
-    }, {
-        name: "Əlaqə",
-        href: "#elaqe"
-    }];
+    const navLinks = [
+        { name: "Haqqımızda", href: "/about" },
+        { name: "İxtisaslar", href: "/programs" },
+        { name: "Xəbərlər", href: "/news" },
+        { name: "Qəbul", href: "/admission" },
+        { name: "Əlaqə", href: "/contact" }
+    ];
+
     const socialIcons = [{
         name: "Facebook",
         href: "#",

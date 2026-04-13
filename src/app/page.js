@@ -8,7 +8,7 @@ import ContactSection1 from "@/components/contact-section-1";
 
 export default function Home() {
   return (
-    <main className="pt-[90px] sm:pt-[100px] md:pt-[105px] lg:pt-[110px]">
+    <>
       <HeroSection />
       <div className="container mx-auto">
         <Feature02 />
@@ -19,6 +19,6 @@ export default function Home() {
         <Blog />
         <ContactSection1 />
       </div>
-    </main>
+    </>
   )
 }

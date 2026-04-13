@@ -11,17 +11,17 @@ export const navigation = [
     items: [
       {
         title: "Yüksək texniki peşə",
-        href: "/programs/high-technical",
+        href: "/programs?type=high-technical",
         icon: <Cpu />
       },
       {
         title: "Texniki peşə (9 illik)",
-        href: "/programs/technical-9",
+        href: "/programs?type=technical-9",
         icon: <BookOpen />
       },
       {
         title: "Texniki peşə (11 illik)",
-        href: "/programs/technical-11",
+        href: "/programs?type=technical-11",
         icon: <GraduationCap />
       }
     ]
@@ -36,12 +36,12 @@ export const navigation = [
     items: [
       {
         title: "Qəbul qaydaları",
-        href: "/admission/rules"
+        href: "/admission#rules"
       },
       {
         title: "Tələb olunan sənədlər",
-        href: "/admission/documents"
-      },
+        href: "/admission#documents"
+      }
     ]
   },
   {

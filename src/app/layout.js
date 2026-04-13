@@ -28,12 +28,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="az" suppressHydrationWarning>
-      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}>
+      <body suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased min-h-screen flex flex-col`}>
         <Providers>
-          <header className="fixed z-50 top-0 w-full">
+          <header className="sticky top-0 z-50">
             <Navbar />
           </header>
-          {children}
+          <main className="flex-1">
+            {children}
+          </main>
           <Footer2 />
         </Providers>
       </body>
