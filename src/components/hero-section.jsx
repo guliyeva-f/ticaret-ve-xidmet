@@ -29,7 +29,7 @@ const VolumeOffIcon = () => (
 export default function HeroSection() {
     const [isPlaying, setIsPlaying] = useState(true)
     const [isMuted, setIsMuted] = useState(true)
-    const videoRef = useRef(null)  
+    const videoRef = useRef(null)
     const togglePlayPause = () => {
         const video = videoRef.current
         if (video) {
@@ -42,16 +42,15 @@ export default function HeroSection() {
         }
     }
     const toggleMute = () => {
-        const video = videoRef.current  
+        const video = videoRef.current
         if (video) {
             video.muted = !isMuted
             setIsMuted(!isMuted)
         }
     }
     useEffect(() => {
-        const video = videoRef.current 
+        const video = videoRef.current
         if (video) {
-            video.muted = true
             video.playsInline = true
             const playPromise = video.play()
             if (playPromise !== undefined) {
@@ -64,10 +63,10 @@ export default function HeroSection() {
     }, [])
 
     return (
-        <section className="relative h-[calc(100vh-90px)] sm:h-[calc(100vh-100px)] md:h-[calc(100vh-105px)] lg:h-[calc(100vh-110px)] overflow-hidden">
+        <section className="relative h-[calc(100vh-var(--navbar-height))] overflow-hidden">
             {/* Video Background */}
             <video
-                ref={videoRef} 
+                ref={videoRef}
                 muted={videoConfig.heroVideo.muted}
                 loop={videoConfig.heroVideo.loop}
                 playsInline={videoConfig.heroVideo.playsInline}

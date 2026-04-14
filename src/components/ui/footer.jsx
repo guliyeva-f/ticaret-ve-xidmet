@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function Footer2() {
     const navLinks = [
@@ -31,7 +32,7 @@ function Footer2() {
         <div className="flex flex-col gap-3 container mx-auto">
             <div className="w-full flex justify-center">
                 <div className="w-24 h-24">
-                    <img src='/images/logo.png' alt="Logo" />
+                    <Image src='/images/logo.png' alt="Logo" width={96} height={96} />
                 </div>
             </div>
             <nav>

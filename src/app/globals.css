@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -107,7 +108,7 @@
   --sidebar-border: oklch(0.8299 0.0085 301.3274);
   --sidebar-ring: oklch(0.3237 0.0638 315.1199);
   --destructive-foreground: oklch(1.0000 0 0);
-  --font-sans: Inter, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-roboto), system-ui, sans-serif;
   --font-serif: Georgia, Times New Roman, serif;
   --font-mono: JetBrains Mono, Fira Code, monospace;
   --shadow-color: #2e2e2e;
@@ -128,6 +129,19 @@
   --shadow-2xl: 0px 4px 10px 0px hsl(0 0% 18.0392% / 0.25);
   --tracking-normal: 0.01em;
   --my-bg: rgb(235, 231, 231);
+  --navbar-height: 90px;
+
+  @media (min-width: 640px) {
+    --navbar-height: 100px;
+  }
+
+  @media (min-width: 768px) {
+    --navbar-height: 105px;
+  }
+
+  @media (min-width: 1024px) {
+    --navbar-height: 110px;
+  }
 }
 
 .dark {
@@ -164,7 +178,7 @@
   --sidebar-ring: oklch(0.6994 0.0308 91.7234);
   --destructive-foreground: oklch(1.0000 0 0);
   --radius: 0.5rem;
-  --font-sans: Inter, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-roboto), system-ui, sans-serif;
   --font-serif: Georgia, Times New Roman, serif;
   --font-mono: JetBrains Mono, Fira Code, monospace;
   --shadow-color: #000000;

@@ -25,11 +25,7 @@ const featureData = [
 ];
 
 const Feature02 = () => {
-  return (
-    <>
-      <Feature featureData={featureData} />
-    </>
-  );
+  return <Feature featureData={featureData} />;
 };
 
 export default Feature02;

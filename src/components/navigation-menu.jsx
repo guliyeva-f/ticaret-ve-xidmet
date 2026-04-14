@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { navigation } from "@/config/navbar";
-import Image from "next/image";
 
 export default function NavMenu({ className }) {
   const isMobile = useIsMobile();
@@ -67,23 +66,6 @@ export default function NavMenu({ className }) {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  );
-}
-
-function ListItem({ title, children, href, ...props }) {
-  return (
-    <li {...props}>
-      <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-[15px] leading-none font-medium">{title}</div>
-          {children && (
-            <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">
-              {children}
-            </p>
-          )}
-        </Link>
-      </NavigationMenuLink>
-    </li>
   );
 }
 function ListItemWithIcon({ title, children, href, icon, ...props }) {

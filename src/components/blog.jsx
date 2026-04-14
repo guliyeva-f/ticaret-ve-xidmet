@@ -10,54 +10,38 @@ const blogPosts = [
   {
     id: 1,
     title: "Mərkəzimizdə peşəyönümü inforturu keçirildi",
-    slug: "merkəzimizde-peseyonumu-inforturu-kecirild",
-    body: "Ticarət və Xidmət üzrə Gəncə Dövlət Peşə Təhsil Mərkəzi tərəfindən peşəyönümü fəaliyyətləri çərçivəsində infotur təşkil olunmuşdur. Tədbir zamanı ixtisaslar, qəbul qaydaları və məzunların məşğulluq perspektivləri haqqında ətraflı təqdimat edilmişdir.",
+    slug: "merkezdə-peseyonumu-inforturu-kecirildi",
     tags: ["Peşəyönümü", "İnfotur"],
-    cover_image: "https://instagram.fgyd4-2.fna.fbcdn.net/v/t51.82787-15/658751735_18089222840596679_7935506449677654044_n.heic?stp=dst-jpg_e35_s1080x1080_tt6&_nc_cat=104&ig_cache_key=Mzg2NzIwODk5NTU2ODQ3ODQ5OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTA4NC5zZHIuQzMifQ%3D%3D&_nc_ohc=3BrYdyEBpLUQ7kNvwGhAQWd&_nc_oc=Adqpdnpf6XhSHtD14q8zpbEygA0o7Wqh2CLo318iH1Xx0wS-TEkte1Mu_zfRAFYWOEw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fgyd4-2.fna&_nc_gid=mMQ9aP_qznjsgjNrxiWy5A&_nc_ss=7a32e&oh=00_Af1Pt6jD95Qy2T1vYNm7BQTaKg8fI4LL8L4Y_kKYmDUnHg&oe=69D840F1",
-    images: [],
+    cover_image: "/images/merkez.jpeg",
     views_count: 84,
-    created_at: "28.03.2026 10:00",
-    edited_at: null,
-    author: "Admin",
+    created_at: "14.04.2026 10:00",
   },
   {
     id: 2,
     title: "Satış və ödəniş üsulları mövzusunda açıq dərs təşkil edildi",
-    slug: "satis-ve-odenish-usullari-movzusunda-aciq-ders",
-    body: "\"Qida və qeyri-qida malları satıcısı nəzarətçi-xəzinədar\" ixtisası üzrə müəllim Allahverdiyeva Türkan tərəfindən \"Nağd, elektron və kredit kartları ilə ödənişlərin edilməsi\" mövzusunda açıq dərs keçirilmişdir.",
+    slug: "satis-ve-odenish-usullari-aciq-ders-1",
     tags: ["Açıq Dərs", "Satış"],
-    cover_image: "https://instagram.fgyd21-1.fna.fbcdn.net/v/t51.82787-15/657763515_18089220767596679_7377398843922605184_n.heic?stp=dst-jpg_e35_s1080x1080_tt6&_nc_cat=107&ig_cache_key=Mzg2NzE5OTI1MzQ5MjEzNzMxMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTA4MC5zZHIuQzMifQ%3D%3D&_nc_ohc=GoNUzjM1MNAQ7kNvwGYKZk8&_nc_oc=AdqTCCsDKo0ztLcotlw22KEUvIQzX0CmfvYp3q5zLo5EkMUYYB63H46VqOp0Y4Lxs4A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fgyd21-1.fna&_nc_gid=mMQ9aP_qznjsgjNrxiWy5A&_nc_ss=7a32e&oh=00_Af2hT2ywHEd7EoGXxdgB2hlb3vfMV23zRerZtlRgRVI7wg&oe=69D83220",
-    images: [],
+    cover_image: "/images/merkez.jpeg",
     views_count: 61,
-    created_at: "02.04.2026 09:30",
-    edited_at: null,
-    author: "Admin",
+    created_at: "13.04.2026 09:30",
   },
   {
     id: 3,
     title: "Kompüter sistemləri üzrə açıq dərs uğurla keçirildi",
     slug: "komputer-sistemleri-uzre-aciq-ders",
-    body: "\"Telekommunikasiyada kompüter texnikasının istismarı üzrə operator\" ixtisası üzrə müəllim Həsənova Pərvin tərəfindən \"Ana plata\" mövzusunda açıq dərs təşkil olunmuşdur. Tələbələrə ana platanın quruluşu və funksiyaları ətraflı izah edilmişdir.",
     tags: ["Açıq Dərs", "Kompüter"],
-    cover_image: "https://instagram.fgyd4-2.fna.fbcdn.net/v/t51.82787-15/660975850_18089207108596679_4577133826350200504_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=104&ig_cache_key=Mzg2NzE0NTg0ODk4Nzk1NDg4OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjk2MHg3MjAuc2RyLkMzIn0%3D&_nc_ohc=YG9hu-fAAeYQ7kNvwHtbii_&_nc_oc=AdptWlCtCEYBUkx2OQAffcBoR2H3tzkTCHrmthDYhcd1-Aj7d6lgJHPEjkkpJ55yDKw&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fgyd4-2.fna&_nc_gid=ylJq7Ys2HB5X_nF9oQhI7Q&_nc_ss=7a32e&oh=00_Af1JCYwdcnj5czGAx0r8p7ASaYsv5JjYSzCXhlvsfmwTsw&oe=69D85F1C",
-    images: [],
+    cover_image: "/images/merkez.jpeg",
     views_count: 47,
-    created_at: "04.04.2026 11:00",
-    edited_at: null,
-    author: "Admin",
+    created_at: "12.04.2026 11:00",
   },
   {
     id: 4,
     title: "Satış və ödəniş üsulları mövzusunda açıq dərs təşkil edildi",
-    slug: "satis-ve-odenish-usullari-movzusunda-aciq-ders",
-    body: "\"Qida və qeyri-qida malları satıcısı nəzarətçi-xəzinədar\" ixtisası üzrə müəllim Allahverdiyeva Türkan tərəfindən \"Nağd, elektron və kredit kartları ilə ödənişlərin edilməsi\" mövzusunda açıq dərs keçirilmişdir.",
+    slug: "satis-ve-odenish-usullari-aciq-ders-2",
     tags: ["Açıq Dərs", "Satış"],
-    cover_image: "https://instagram.fgyd21-1.fna.fbcdn.net/v/t51.82787-15/657763515_18089220767596679_7377398843922605184_n.heic?stp=dst-jpg_e35_s1080x1080_tt6&_nc_cat=107&ig_cache_key=Mzg2NzE5OTI1MzQ5MjEzNzMxMQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTA4MC5zZHIuQzMifQ%3D%3D&_nc_ohc=GoNUzjM1MNAQ7kNvwGYKZk8&_nc_oc=AdqTCCsDKo0ztLcotlw22KEUvIQzX0CmfvYp3q5zLo5EkMUYYB63H46VqOp0Y4Lxs4A&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fgyd21-1.fna&_nc_gid=mMQ9aP_qznjsgjNrxiWy5A&_nc_ss=7a32e&oh=00_Af2hT2ywHEd7EoGXxdgB2hlb3vfMV23zRerZtlRgRVI7wg&oe=69D83220",
-    images: [],
+    cover_image: "/images/merkez.jpeg",
     views_count: 61,
-    created_at: "02.04.2026 09:30",
-    edited_at: null,
-    author: "Admin",
+    created_at: "11.04.2026 09:30",
   },
 ];
 
@@ -129,25 +113,24 @@ export default function Blog() {
           </Link>
         ))}
       </div>
-      <button
-        className="cursor-pointer
-        bg-orange-800 text-white
-        border border-orange-400 border-b-4
-        font-medium overflow-hidden relative
-        px-4 py-2 rounded-md
-        hover:brightness-125 hover:border-t-4 hover:border-b
-        active:opacity-75 outline-none duration-300 group
-      "><span
-        className="
-          bg-orange-400
-          absolute -top-[150%] left-0
-          inline-flex w-80 h-[5px] rounded-md
-          opacity-60
-          group-hover:top-[150%]
-          duration-500
-          shadow-[0_0_12px_6px_rgba(251,146,60,0.4)]
-        "></span>Bütün xəbərlərə bax
-      </button>
+      <Link href="/news" className="cursor-pointer
+  bg-orange-800 text-white
+  border border-orange-400 border-b-4
+  font-medium overflow-hidden relative
+  px-4 py-2 rounded-md
+  hover:brightness-125 hover:border-t-4 hover:border-b
+  active:opacity-75 outline-none duration-300 group
+"><span className="
+    bg-orange-400
+    absolute -top-[150%] left-0
+    inline-flex w-80 h-[5px] rounded-md
+    opacity-60
+    group-hover:top-[150%]
+    duration-500
+    shadow-[0_0_12px_6px_rgba(251,146,60,0.4)]
+  "></span>
+        Bütün xəbərlərə bax
+      </Link>
     </section>
   );
 }

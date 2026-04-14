@@ -130,7 +130,7 @@ const Services = () => {
                 </p>
               </div>
               <div className="flex md:flex-row flex-col items-center gap-4">
-                <Button className="relative bg-white text-black font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 hover:bg-white w-fit overflow-hidden cursor-pointer">
+                <Button asChild className="relative bg-white text-black font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 hover:bg-white w-fit overflow-hidden cursor-pointer">
                   <Link href="/programs" className="flex items-center">
                     <span className="relative z-10 text-[16px] transition-all duration-500">
                       Bütün ixtisaslara bax

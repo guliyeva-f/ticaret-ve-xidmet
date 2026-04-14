@@ -7,57 +7,53 @@ import { cn } from '@/lib/utils';
 
 export default function TravelGalleryDemo() {
   return (
-    <><style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
-      `}</style>
-      <div className="w-full flex flex-col gap-6">
-        <div className="flex flex-col gap-2 ml-6">
-          <h2 className="text-xl font-medium tracking-tight text-foreground">
-            Korpuslarımız <span className="text-muted-foreground">/ Gəncə</span>
-          </h2>
-          <p className="text-sm text-muted-foreground max-w-md">
-            Hər bir korpusun üzərindən keçərək şəkilə baxın
-          </p>
-        </div>
-        <GlidingCard>
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 items-stretch">
-            <div className="flex flex-col gap-5">
-              <ListItem
-                index="I"
-                title="Nizami prospekti, 190"
-                subtitle="3 nömrəli Peşə Liseyi"
-                src="/images/merkez.jpeg"
-                caption="I Korpus"
-                rotation={-4}
-                offset={{ x: 30, y: 40 }}
-                isDefault
-              />
-              <ListItem
-                index="II"
-                title="Əziz Nəzərov küçəsi, 3A"
-                subtitle="1 nömrəli Peşə Məktəbi"
-                src="/images/merkez.jpeg"
-                caption="II Korpus"
-                rotation={8}
-                offset={{ x: 40, y: -30 }}
-              />
-              <ListItem
-                index="III"
-                title="Nizami prospekti, 44"
-                subtitle="2 nömrəli Peşə Məktəbi"
-                src="/images/merkez.jpeg"
-                caption="III Korpus"
-                rotation={-8}
-                offset={{ x: 50, y: -110 }}
-              />
-            </div>
-            <div className="relative hidden md:block perspective-1000 self-stretch">
-              <GlidingCardContent />
-            </div>
-          </div>
-        </GlidingCard>
+    <div className="w-full flex flex-col gap-6">
+      <div className="flex flex-col gap-2 ml-6">
+        <h2 className="text-xl font-medium tracking-tight text-foreground">
+          Korpuslarımız <span className="text-muted-foreground">/ Gəncə</span>
+        </h2>
+        <p className="text-sm text-muted-foreground max-w-md">
+          Hər bir korpusun üzərindən keçərək şəkilə baxın
+        </p>
       </div>
-    </>
+      <GlidingCard>
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 items-stretch">
+          <div className="flex flex-col gap-5">
+            <ListItem
+              index="I"
+              title="Nizami prospekti, 190"
+              subtitle="3 nömrəli Peşə Liseyi"
+              src="/images/merkez.jpeg"
+              caption="I Korpus"
+              rotation={-4}
+              offset={{ x: 30, y: 40 }}
+              isDefault
+            />
+            <ListItem
+              index="II"
+              title="Əziz Nəzərov küçəsi, 3A"
+              subtitle="1 nömrəli Peşə Məktəbi"
+              src="/images/merkez.jpeg"
+              caption="II Korpus"
+              rotation={8}
+              offset={{ x: 40, y: -30 }}
+            />
+            <ListItem
+              index="III"
+              title="Nizami prospekti, 44"
+              subtitle="2 nömrəli Peşə Məktəbi"
+              src="/images/merkez.jpeg"
+              caption="III Korpus"
+              rotation={-8}
+              offset={{ x: 50, y: -110 }}
+            />
+          </div>
+          <div className="relative hidden md:block perspective-1000 self-stretch">
+            <GlidingCardContent />
+          </div>
+        </div>
+      </GlidingCard>
+    </div>
   );
 }
 

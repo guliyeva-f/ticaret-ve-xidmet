@@ -44,6 +44,7 @@ export const NavigationSheet = () => {
                     {navItem.items.map((item) => (
                       <li key={item.title}>
                         <Link
+                          onClick={() => setOpen(false)}
                           href={item.href}
                           className="flex items-center gap-2 rounded-md p-2 hover:bg-accent hover:text-accent-foreground transition-colors"
                         >
@@ -58,6 +59,7 @@ export const NavigationSheet = () => {
                 </div>
               ) : (
                 <Link
+                  onClick={() => setOpen(false)}
                   href={navItem.href}
                   className="rounded-md flex items-center gap-2 text-lg font-bold p-2 hover:bg-accent hover:text-accent-foreground transition-colors"
                 > {navItem.title} <ArrowUpRight className="size-4" />
