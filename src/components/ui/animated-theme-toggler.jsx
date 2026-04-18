@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useRef } from "react"
+import { useCallback, useRef, useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { flushSync } from "react-dom"
@@ -10,9 +10,13 @@ export const AnimatedThemeToggler = ({
   duration = 400,
   ...props
 }) => {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const buttonRef = useRef(null)
-  const isDark = theme === "dark"
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  const isDark = resolvedTheme === "dark"
   const toggleTheme = useCallback(() => {
     if (!buttonRef.current) return
     const applyTheme = () => {
@@ -33,27 +37,31 @@ export const AnimatedThemeToggler = ({
       ready.then(() => {
         const button = buttonRef.current
         if (!button) return
-        const { top, left, width, height } = button.getBoundingClientRect()
+        const { top, left, width, height } =
+          button.getBoundingClientRect()
         const x = left + width / 2
         const y = top + height / 2
         const maxRadius = Math.hypot(
           Math.max(left, window.innerWidth - left),
           Math.max(top, window.innerHeight - top)
         )
-        document.documentElement.animate({
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${maxRadius}px at ${x}px ${y}px)`,
-          ],
-        }, {
-          duration,
-          easing: "ease-in-out",
-          pseudoElement: "::view-transition-new(root)",
-        })
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${maxRadius}px at ${x}px ${y}px)`,
+            ],
+          },
+          {
+            duration,
+            easing: "ease-in-out",
+            pseudoElement: "::view-transition-new(root)",
+          }
+        )
       })
     }
   }, [isDark, duration, setTheme])
-
+  if (!mounted) return null
   return (
     <button
       ref={buttonRef}
@@ -63,5 +71,5 @@ export const AnimatedThemeToggler = ({
     >{isDark ? <Sun /> : <Moon />}
       <span className="sr-only">Toggle theme</span>
     </button>
-  );
+  )
 }

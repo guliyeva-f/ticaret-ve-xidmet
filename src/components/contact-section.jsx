@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Mail, Clock, Phone } from 'lucide-react'
-import TravelGalleryDemo from './satisui/demo';
+import CampusGallery from './campus';
 import { Badge } from './ui/badge';
 import Link from 'next/link';
 
@@ -23,13 +23,13 @@ export default function ContactSection() {
         <Badge variant="outline" className="px-3 py-1 text-sm h-auto">
           Əlaqə
         </Badge>
-        <h1 className="text-3xl md:text-4xl text-center font-semibold tracking-tight">
+        <h2 className="text-3xl md:text-4xl text-center font-semibold tracking-tight">
           Sualların var? Bizi tap!
-        </h1>
+        </h2>
       </div>
       <div className='grid gap-6 lg:grid-cols-2 lg:items-stretch'>
         <Card className='px-3'>
-          <TravelGalleryDemo />
+          <CampusGallery />
         </Card>
         <Card className='flex flex-col justify-evenly md:flex-row lg:flex-col xl:flex-row'>
           <CardContent className='flex flex-col w-full gap-6 justify-center'>

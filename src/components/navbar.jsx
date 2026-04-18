@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { NavigationSheet } from "@/components/navigation-sheet";
-import NavMenu from "./navigation-menu";
+import NavMenu from "./nav-menu";
 import { AnimatedThemeToggler } from "./ui/animated-theme-toggler";
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
         </div>
         <div className="flex-1 flex flex-col h-full items-center lg:items-end justify-evenly ">
           <AnimatedThemeToggler className={'pr-5 cursor-pointer'} />
-          <div className="w-[95%] hidden lg:block border-t border-black/20 dark:border-white/30" />
+          <div className="w-[95%] hidden lg:block border-t border-border dark:border-white/30" />
           <div className="w-full justify-end hidden lg:flex mt-2">
             <NavMenu />
           </div>

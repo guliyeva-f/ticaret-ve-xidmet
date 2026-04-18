@@ -71,7 +71,7 @@
   --shadow-opacity: var(--shadow-opacity);
   --color-shadow-color: var(--shadow-color);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-my-bg: var(--my-bg);
+  --color-hero-badge-bg: var(--hero-badge-bg);
 }
 
 :root {
@@ -128,7 +128,7 @@
   --shadow-xl: 0px 4px 10px 0px hsl(0 0% 18.0392% / 0.10), 0px 8px 10px -1px hsl(0 0% 18.0392% / 0.10);
   --shadow-2xl: 0px 4px 10px 0px hsl(0 0% 18.0392% / 0.25);
   --tracking-normal: 0.01em;
-  --my-bg: rgb(235, 231, 231);
+  --hero-badge-bg: rgb(235, 231, 231);
   --navbar-height: 90px;
 
   @media (min-width: 640px) {

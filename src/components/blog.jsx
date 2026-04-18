@@ -1,10 +1,10 @@
 
-import { ArrowRight, CalendarDays, Dot, Eye, Mails } from "lucide-react";
+import { ArrowRight, CalendarDays, Dot, Eye } from "lucide-react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-
+import Image from "next/image";
 
 const blogPosts = [
   {
@@ -73,8 +73,20 @@ export default function Blog() {
           <Link href={`/news/${post.slug}`} key={post.id} className="flex w-full md:w-[calc((100%-16px)/2)] lg:w-[calc((100%-32px)/3)] 2xl:w-[calc((100%-48px)/4)]">
             <div className="overflow-hidden rounded-xl h-full flex flex-col justify-between bg-neutral-100 dark:bg-neutral-800 p-2 pb-4">
               <div className="relative isolate">
-                <img alt={post.title} className="aspect-14/9 rounded-lg bg-muted object-cover" src={post.cover_image} />
-                <img alt={post.title} className="absolute inset-0 -z-10 aspect-17/9 scale-y-110 rounded bg-muted blur-2xl" src={post.cover_image} />
+                <Image
+                  src={post.cover_image}
+                  alt={post.title}
+                  width={800}
+                  height={514}
+                  className="aspect-14/9 rounded-lg bg-muted object-cover"
+                />
+                <Image
+                  src={post.cover_image}
+                  alt={post.title}
+                  width={800}
+                  height={514}
+                  className="absolute inset-0 -z-10 aspect-17/9 scale-y-110 rounded bg-muted blur-2xl"
+                />
               </div>
               <div className="p-2 flex flex-col flex-1 gap-3 justify-between">
                 <div className="pt-2 flex flex-wrap items-center gap-1">
@@ -98,16 +110,15 @@ export default function Blog() {
                     {post.views_count}
                   </div>
                 </div>
-                <Button
-                  variant="ghost"
+                <div
                   className="
         self-end text-[15px] flex items-center gap-1 group
         text-blue-600 hover:text-blue-700
-        underline underline-offset-4 decoration-1
+        underline underline-offset-4 decoration-1 font-medium
         bg-transparent hover:bg-transparent
       ">Ətraflı oxu
                   <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </Button>
+                </div >
               </div>
             </div>
           </Link>

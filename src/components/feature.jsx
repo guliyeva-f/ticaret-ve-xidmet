@@ -3,8 +3,32 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "motion/react";
 import { useRef } from "react";
+import { CompassIcon } from "./ui/icons/compass-icon";
+import { TelescopeIcon } from "./ui/icons/telescope-icon";
+import { RocketIcon } from "./ui/icons/rocket-icon";
 
-const Feature = ({ featureData }) => {
+const featureData = [
+  {
+    icon: CompassIcon,
+    title: "Missiyamız",
+    content:
+      "Tələbələrə müasir peşə bilikləri və praktik bacarıqlar qazandırmaq, onları xidmət və ticarət sektorunda rəqabətqabiliyyətli mütəxəssis kimi formalaşdırmaq əsas prioritetimizdir.",
+  },
+  {
+    icon: TelescopeIcon,
+    title: "Vizyonumuz",
+    content:
+      "Regionda peşə təhsili sahəsində keyfiyyət və etibarlılıq göstəricisinə çevrilmək, işəgötürənlərlə əməkdaşlıq çərçivəsində əmək bazarının tələblərinə cavab verən ixtisaslı kadrlar yetişdirmək əsas məqsədlərimizdəndir.",
+  },
+  {
+    icon: RocketIcon,
+    title: "Üstünlüklərimiz",
+    content:
+      "Tədris sahə təcrübəsinə malik müəllimlər tərəfindən aparılır, proqramlar əmək bazarının aktual tələblərinə uyğun yenilənir və tələbələrin real iş mühitinə uyğun praktik bacarıqlar əldə etməsinə xüsusi diqqət yetirilir.",
+  },
+];
+
+const Feature = () => {
   const iconRefs = useRef({});
 
   return (
@@ -20,9 +44,9 @@ const Feature = ({ featureData }) => {
           ><Badge variant="outline" className="px-3 py-1 h-auto text-sm">
               Haqqımızda
             </Badge>
-            <h1 className="text-3xl md:text-4xl font-semibold text-center tracking-[-1px]">
+            <h2 className="text-3xl md:text-4xl font-semibold text-center tracking-[-1px]">
               Ticarət və Xidmət üzrə <br />Gəncə Dövlət Peşə Təhsil Mərkəzi
-            </h1>
+            </h2>
             <p className="text-[18px] font-normal text-muted-foreground text-center">
               Gəncə şəhərində fəaliyyət göstərən mərkəzimiz xidmət və ticarət
               sahələri üzrə <br /> peşəkar kadrların hazırlanmasını həyata keçirir.

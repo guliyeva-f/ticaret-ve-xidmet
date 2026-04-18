@@ -1,7 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import { Providers } from "@/components/providers";
-import Footer2 from "@/components/ui/footer";
+import Footer from "@/components/footer";
 import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
           <main className="flex-1">
             {children}
           </main>
-          <Footer2 />
+          <Footer />
         </Providers>
       </body>
     </html>

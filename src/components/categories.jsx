@@ -69,7 +69,7 @@ const categoriesData = [
   },
 ];
 
-const Services = () => {
+const Categories = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 80, }, visible: (index) => ({ opacity: 1, y: 0, transition: { delay: index * 0.3, duration: 0.6, ease: "easeInOut", }, }),
   };
@@ -82,9 +82,9 @@ const Services = () => {
             <Badge variant="outline" className="px-3 py-1 text-sm h-auto">
               İxtisaslar
             </Badge>
-            <h1 className="text-3xl md:text-4xl text-center font-semibold tracking-tight">
+            <h2 className="text-3xl md:text-4xl text-center font-semibold tracking-tight">
               Karyeranız üçün doğru ixtisası seçin
-            </h1>
+            </h2>
           </div>
           <div className="flex flex-col gap-8 sm:gap-12 justify-center items-center w-full">
             <div className="flex flex-wrap justify-center gap-6 w-full">
@@ -149,4 +149,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Categories;

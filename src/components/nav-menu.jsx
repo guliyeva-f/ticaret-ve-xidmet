@@ -11,7 +11,7 @@ export default function NavMenu({ className }) {
 
   return (
     <NavigationMenu
-      viewport={isMobile}
+      viewport={isMobile ? null : undefined}
       className={`z-10 ${className || ""}`}
     > <NavigationMenuList className="flex-wrap">
         <NavigationMenuItem>

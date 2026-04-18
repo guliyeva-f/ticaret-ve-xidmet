@@ -67,7 +67,7 @@ export default function HeroSection() {
             {/* Video Background */}
             <video
                 ref={videoRef}
-                muted={videoConfig.heroVideo.muted}
+                muted={isMuted}
                 loop={videoConfig.heroVideo.loop}
                 playsInline={videoConfig.heroVideo.playsInline}
                 className="absolute inset-0 w-full h-full object-cover z-0"
@@ -75,14 +75,14 @@ export default function HeroSection() {
             </video>
             {/* overlay */}
             <div className={`absolute inset-0 bg-linear-to-br z-10 ${videoConfig.overlay.gradient}`}></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 z-10">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 z-20">
                 <h1 className="text-5xl md:text-7xl text-shadow-lg font-bold text-white mb-6 leading-tight">
                     Gələcəyini peşə ilə qur:
                 </h1>
                 <div className="flex items-center gap-3 text-4xl md:text-6xl font-bold">
                     <RotatingText
                         texts={professions}
-                        mainClassName="px-2 md:px-3 bg-my-bg text-[#40294a] overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg"
+                        mainClassName="px-2 md:px-3 bg-hero-badge-bg text-[#40294a] overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg"
                         staggerFrom={"last"}
                         initial={{ y: "110%" }}
                         animate={{ y: 0 }}
@@ -99,12 +99,12 @@ export default function HeroSection() {
             {/* Video Controls */}
             {videoConfig.overlay.showControls && (
                 <div className="absolute bottom-8 right-8 z-30 flex gap-3">
-                    <button
+                    <button aria-label={isPlaying ? "Pause video" : "Play video"}
                         onClick={togglePlayPause}
                         className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
                     >{isPlaying ? <PauseIcon /> : <PlayIcon />}
                     </button>
-                    <button
+                    <button aria-label={isMuted ? "Unmute video" : "Mute video"}
                         onClick={toggleMute}
                         className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110 transform border border-white/30"
                     >{isMuted ? <VolumeOffIcon /> : <VolumeIcon />}

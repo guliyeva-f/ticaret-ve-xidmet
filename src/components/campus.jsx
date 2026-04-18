@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { MapPin } from 'lucide-react';
-import { GlidingCard, GlidingCardContent, GlidingCardItem } from './gliding-card';
+import { GlidingCard, GlidingCardContent, GlidingCardItem } from './ui/gliding-card';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
-export default function TravelGalleryDemo() {
+export default function CampusGallery() {
   return (
     <div className="w-full flex flex-col gap-6">
       <div className="flex flex-col gap-2 ml-6">
@@ -93,8 +94,7 @@ function Polaroid({ src, caption }) {
     )}
     ><div className="relative aspect-4/5 w-full overflow-hidden mb-4 bg-muted">
         <div className="absolute inset-0 bg-linear-to-tr from-orange-500/10 to-blue-500/10 mix-blend-overlay z-10" />
-        <img src={src} alt={caption} className="w-full h-full object-cover contrast-[1.1] brightness-[1.1]"
-        />
+        <Image src={src} alt={caption} fill className="object-cover contrast-[1.1] brightness-[1.1]" />
         <div className="absolute inset-0 ring-1 ring-inset ring-black/10 dark:ring-white/10 z-20" />
       </div>
       <div className="text-center">

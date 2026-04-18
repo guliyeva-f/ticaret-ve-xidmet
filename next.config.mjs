@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: 'your-api-domain.com' }],
+    formats: ['image/avif', 'image/webp'],
+  }
 };
 
 export default nextConfig;
